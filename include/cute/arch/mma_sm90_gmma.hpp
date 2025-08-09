@@ -1,33 +1,33 @@
 /***************************************************************************************************
- * Copyright (c) 2023 - 2024 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
- * SPDX-License-Identifier: BSD-3-Clause
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice, this
- * list of conditions and the following disclaimer.
- *
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- * this list of conditions and the following disclaimer in the documentation
- * and/or other materials provided with the distribution.
- *
- * 3. Neither the name of the copyright holder nor the names of its
- * contributors may be used to endorse or promote products derived from
- * this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
- * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
- * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
- * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
- * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- **************************************************************************************************/
+* Copyright (c) 2023 - 2024 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+* SPDX-License-Identifier: BSD-3-Clause
+*
+* Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions are met:
+*
+* 1. Redistributions of source code must retain the above copyright notice, this
+* list of conditions and the following disclaimer.
+*
+* 2. Redistributions in binary form must reproduce the above copyright notice,
+* this list of conditions and the following disclaimer in the documentation
+* and/or other materials provided with the distribution.
+*
+* 3. Neither the name of the copyright holder nor the names of its
+* contributors may be used to endorse or promote products derived from
+* this software without specific prior written permission.
+*
+* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+* AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+* IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+* DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+* FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+* DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+* SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+* CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+* OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+* OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*
+**************************************************************************************************/
 #pragma once
 
 #include <cute/config.hpp>                 // CUTE_HOST_DEVICE
@@ -163,8 +163,8 @@ struct MMA_64x8x16_F16F16F16_SS
     "}\n"
       : "+r"(d0), "+r"(d1)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -210,8 +210,8 @@ struct MMA_64x8x16_F16F16F16_RS
     "}\n"
       : "+r"(d0), "+r"(d1)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -254,8 +254,8 @@ struct MMA_64x16x16_F16F16F16_SS
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -301,8 +301,8 @@ struct MMA_64x16x16_F16F16F16_RS
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -347,8 +347,8 @@ struct MMA_64x32x16_F16F16F16_SS
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -396,8 +396,8 @@ struct MMA_64x32x16_F16F16F16_RS
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -446,8 +446,8 @@ struct MMA_64x48x16_F16F16F16_SS
         "+r"(d04), "+r"(d05), "+r"(d06), "+r"(d07),
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -500,8 +500,8 @@ struct MMA_64x48x16_F16F16F16_RS
         "+r"(d04), "+r"(d05), "+r"(d06), "+r"(d07),
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -552,8 +552,8 @@ struct MMA_64x64x16_F16F16F16_SS
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -606,8 +606,8 @@ struct MMA_64x64x16_F16F16F16_RS
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -661,8 +661,8 @@ struct MMA_64x80x16_F16F16F16_SS
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15),
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -720,8 +720,8 @@ struct MMA_64x80x16_F16F16F16_RS
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15),
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -777,8 +777,8 @@ struct MMA_64x96x16_F16F16F16_SS
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -836,8 +836,8 @@ struct MMA_64x96x16_F16F16F16_RS
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -896,8 +896,8 @@ struct MMA_64x112x16_F16F16F16_SS
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23),
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -960,8 +960,8 @@ struct MMA_64x112x16_F16F16F16_RS
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23),
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -1022,8 +1022,8 @@ struct MMA_64x128x16_F16F16F16_SS
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -1086,8 +1086,8 @@ struct MMA_64x128x16_F16F16F16_RS
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -1151,8 +1151,8 @@ struct MMA_64x144x16_F16F16F16_SS
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31),
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -1220,8 +1220,8 @@ struct MMA_64x144x16_F16F16F16_RS
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31),
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -1288,8 +1288,8 @@ struct MMA_64x160x16_F16F16F16_SS
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -1359,8 +1359,8 @@ struct MMA_64x160x16_F16F16F16_RS
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -1430,8 +1430,8 @@ struct MMA_64x176x16_F16F16F16_SS
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39),
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -1504,8 +1504,8 @@ struct MMA_64x176x16_F16F16F16_RS
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39),
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -1576,8 +1576,8 @@ struct MMA_64x192x16_F16F16F16_SS
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -1650,8 +1650,8 @@ struct MMA_64x192x16_F16F16F16_RS
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -1725,8 +1725,8 @@ struct MMA_64x208x16_F16F16F16_SS
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47),
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -1804,8 +1804,8 @@ struct MMA_64x208x16_F16F16F16_RS
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47),
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -1882,8 +1882,8 @@ struct MMA_64x224x16_F16F16F16_SS
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -1963,8 +1963,8 @@ struct MMA_64x224x16_F16F16F16_RS
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -2044,8 +2044,8 @@ struct MMA_64x240x16_F16F16F16_SS
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55),
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -2128,8 +2128,8 @@ struct MMA_64x240x16_F16F16F16_RS
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55),
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -2210,8 +2210,8 @@ struct MMA_64x256x16_F16F16F16_SS
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x16_F16F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -2294,8 +2294,8 @@ struct MMA_64x256x16_F16F16F16_RS
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x16_F16F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -2338,8 +2338,8 @@ struct MMA_64x8x16_F32F16F16_SS
     "}\n"
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -2385,8 +2385,8 @@ struct MMA_64x8x16_F32F16F16_RS
     "}\n"
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -2431,8 +2431,8 @@ struct MMA_64x16x16_F32F16F16_SS
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3),
         "+f"(d4), "+f"(d5), "+f"(d6), "+f"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -2480,8 +2480,8 @@ struct MMA_64x16x16_F32F16F16_RS
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3),
         "+f"(d4), "+f"(d5), "+f"(d6), "+f"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -2531,8 +2531,8 @@ struct MMA_64x32x16_F32F16F16_SS
         "+f"(d08), "+f"(d09), "+f"(d10), "+f"(d11),
         "+f"(d12), "+f"(d13), "+f"(d14), "+f"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -2585,8 +2585,8 @@ struct MMA_64x32x16_F32F16F16_RS
         "+f"(d08), "+f"(d09), "+f"(d10), "+f"(d11),
         "+f"(d12), "+f"(d13), "+f"(d14), "+f"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -2642,8 +2642,8 @@ struct MMA_64x48x16_F32F16F16_SS
         "+f"(d16), "+f"(d17), "+f"(d18), "+f"(d19),
         "+f"(d20), "+f"(d21), "+f"(d22), "+f"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -2703,8 +2703,8 @@ struct MMA_64x48x16_F32F16F16_RS
         "+f"(d16), "+f"(d17), "+f"(d18), "+f"(d19),
         "+f"(d20), "+f"(d21), "+f"(d22), "+f"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -2765,8 +2765,8 @@ struct MMA_64x64x16_F32F16F16_SS
         "+f"(d24), "+f"(d25), "+f"(d26), "+f"(d27),
         "+f"(d28), "+f"(d29), "+f"(d30), "+f"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -2829,8 +2829,8 @@ struct MMA_64x64x16_F32F16F16_RS
         "+f"(d24), "+f"(d25), "+f"(d26), "+f"(d27),
         "+f"(d28), "+f"(d29), "+f"(d30), "+f"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -2896,8 +2896,8 @@ struct MMA_64x80x16_F32F16F16_SS
         "+f"(d32), "+f"(d33), "+f"(d34), "+f"(d35),
         "+f"(d36), "+f"(d37), "+f"(d38), "+f"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -2967,8 +2967,8 @@ struct MMA_64x80x16_F32F16F16_RS
         "+f"(d32), "+f"(d33), "+f"(d34), "+f"(d35),
         "+f"(d36), "+f"(d37), "+f"(d38), "+f"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -3039,8 +3039,8 @@ struct MMA_64x96x16_F32F16F16_SS
         "+f"(d40), "+f"(d41), "+f"(d42), "+f"(d43),
         "+f"(d44), "+f"(d45), "+f"(d46), "+f"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -3113,8 +3113,8 @@ struct MMA_64x96x16_F32F16F16_RS
         "+f"(d40), "+f"(d41), "+f"(d42), "+f"(d43),
         "+f"(d44), "+f"(d45), "+f"(d46), "+f"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -3190,8 +3190,8 @@ struct MMA_64x112x16_F32F16F16_SS
         "+f"(d48), "+f"(d49), "+f"(d50), "+f"(d51),
         "+f"(d52), "+f"(d53), "+f"(d54), "+f"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -3271,8 +3271,8 @@ struct MMA_64x112x16_F32F16F16_RS
         "+f"(d48), "+f"(d49), "+f"(d50), "+f"(d51),
         "+f"(d52), "+f"(d53), "+f"(d54), "+f"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -3353,8 +3353,8 @@ struct MMA_64x128x16_F32F16F16_SS
         "+f"(d56), "+f"(d57), "+f"(d58), "+f"(d59),
         "+f"(d60), "+f"(d61), "+f"(d62), "+f"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -3437,8 +3437,8 @@ struct MMA_64x128x16_F32F16F16_RS
         "+f"(d56), "+f"(d57), "+f"(d58), "+f"(d59),
         "+f"(d60), "+f"(d61), "+f"(d62), "+f"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -3524,8 +3524,8 @@ struct MMA_64x144x16_F32F16F16_SS
         "+f"(d64), "+f"(d65), "+f"(d66), "+f"(d67),
         "+f"(d68), "+f"(d69), "+f"(d70), "+f"(d71)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -3615,8 +3615,8 @@ struct MMA_64x144x16_F32F16F16_RS
         "+f"(d64), "+f"(d65), "+f"(d66), "+f"(d67),
         "+f"(d68), "+f"(d69), "+f"(d70), "+f"(d71)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -3708,8 +3708,8 @@ struct MMA_64x160x16_F32F16F16_SS
         "+f"(d72), "+f"(d73), "+f"(d74), "+f"(d75),
         "+f"(d76), "+f"(d77), "+f"(d78), "+f"(d79)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -3804,8 +3804,8 @@ struct MMA_64x160x16_F32F16F16_RS
         "+f"(d72), "+f"(d73), "+f"(d74), "+f"(d75),
         "+f"(d76), "+f"(d77), "+f"(d78), "+f"(d79)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -3902,8 +3902,8 @@ struct MMA_64x176x16_F32F16F16_SS
         "+f"(d80), "+f"(d81), "+f"(d82), "+f"(d83),
         "+f"(d84), "+f"(d85), "+f"(d86), "+f"(d87)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -4003,8 +4003,8 @@ struct MMA_64x176x16_F32F16F16_RS
         "+f"(d80), "+f"(d81), "+f"(d82), "+f"(d83),
         "+f"(d84), "+f"(d85), "+f"(d86), "+f"(d87)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -4105,8 +4105,8 @@ struct MMA_64x192x16_F32F16F16_SS
         "+f"(d88), "+f"(d89), "+f"(d90), "+f"(d91),
         "+f"(d92), "+f"(d93), "+f"(d94), "+f"(d95)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -4209,8 +4209,8 @@ struct MMA_64x192x16_F32F16F16_RS
         "+f"(d88), "+f"(d89), "+f"(d90), "+f"(d91),
         "+f"(d92), "+f"(d93), "+f"(d94), "+f"(d95)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -4316,8 +4316,8 @@ struct MMA_64x208x16_F32F16F16_SS
         "+f"(d096), "+f"(d097), "+f"(d098), "+f"(d099),
         "+f"(d100), "+f"(d101), "+f"(d102), "+f"(d103)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -4427,8 +4427,8 @@ struct MMA_64x208x16_F32F16F16_RS
         "+f"(d096), "+f"(d097), "+f"(d098), "+f"(d099),
         "+f"(d100), "+f"(d101), "+f"(d102), "+f"(d103)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -4540,8 +4540,8 @@ struct MMA_64x224x16_F32F16F16_SS
         "+f"(d104), "+f"(d105), "+f"(d106), "+f"(d107),
         "+f"(d108), "+f"(d109), "+f"(d110), "+f"(d111)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -4656,8 +4656,8 @@ struct MMA_64x224x16_F32F16F16_RS
         "+f"(d104), "+f"(d105), "+f"(d106), "+f"(d107),
         "+f"(d108), "+f"(d109), "+f"(d110), "+f"(d111)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -4774,8 +4774,8 @@ struct MMA_64x240x16_F32F16F16_SS
         "+f"(d112), "+f"(d113), "+f"(d114), "+f"(d115),
         "+f"(d116), "+f"(d117), "+f"(d118), "+f"(d119)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -4895,8 +4895,8 @@ struct MMA_64x240x16_F32F16F16_RS
         "+f"(d112), "+f"(d113), "+f"(d114), "+f"(d115),
         "+f"(d116), "+f"(d117), "+f"(d118), "+f"(d119)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -5017,8 +5017,8 @@ struct MMA_64x256x16_F32F16F16_SS
         "+f"(d120), "+f"(d121), "+f"(d122), "+f"(d123),
         "+f"(d124), "+f"(d125), "+f"(d126), "+f"(d127)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x16_F32F16F16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -5141,8 +5141,8 @@ struct MMA_64x256x16_F32F16F16_RS
         "+f"(d120), "+f"(d121), "+f"(d122), "+f"(d123),
         "+f"(d124), "+f"(d125), "+f"(d126), "+f"(d127)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x16_F32F16F16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -5185,8 +5185,8 @@ struct MMA_64x8x16_F32BF16BF16_SS
     "}\n"
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -5232,8 +5232,8 @@ struct MMA_64x8x16_F32BF16BF16_RS
     "}\n"
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -5278,8 +5278,8 @@ struct MMA_64x16x16_F32BF16BF16_SS
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3),
         "+f"(d4), "+f"(d5), "+f"(d6), "+f"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -5327,8 +5327,8 @@ struct MMA_64x16x16_F32BF16BF16_RS
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3),
         "+f"(d4), "+f"(d5), "+f"(d6), "+f"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -5378,8 +5378,8 @@ struct MMA_64x32x16_F32BF16BF16_SS
         "+f"(d08), "+f"(d09), "+f"(d10), "+f"(d11),
         "+f"(d12), "+f"(d13), "+f"(d14), "+f"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -5432,8 +5432,8 @@ struct MMA_64x32x16_F32BF16BF16_RS
         "+f"(d08), "+f"(d09), "+f"(d10), "+f"(d11),
         "+f"(d12), "+f"(d13), "+f"(d14), "+f"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -5489,8 +5489,8 @@ struct MMA_64x48x16_F32BF16BF16_SS
         "+f"(d16), "+f"(d17), "+f"(d18), "+f"(d19),
         "+f"(d20), "+f"(d21), "+f"(d22), "+f"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -5550,8 +5550,8 @@ struct MMA_64x48x16_F32BF16BF16_RS
         "+f"(d16), "+f"(d17), "+f"(d18), "+f"(d19),
         "+f"(d20), "+f"(d21), "+f"(d22), "+f"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -5588,6 +5588,7 @@ struct MMA_64x64x16_F32BF16BF16_SS
       float         & d28, float         & d29, float         & d30, float         & d31,
       GMMA::ScaleOut const scale_D = GMMA::ScaleOut::One)
   {
+    printf("desc_a: %llx, desc_b: %llx\n", desc_a, desc_b);
 #if defined(CUTE_ARCH_MMA_SM90A_ENABLED)
     cutlass::arch::synclog_emit_wgmma_smem_smem(__LINE__, desc_a, desc_b);
     asm volatile(
@@ -5612,8 +5613,8 @@ struct MMA_64x64x16_F32BF16BF16_SS
         "+f"(d24), "+f"(d25), "+f"(d26), "+f"(d27),
         "+f"(d28), "+f"(d29), "+f"(d30), "+f"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -5676,8 +5677,8 @@ struct MMA_64x64x16_F32BF16BF16_RS
         "+f"(d24), "+f"(d25), "+f"(d26), "+f"(d27),
         "+f"(d28), "+f"(d29), "+f"(d30), "+f"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -5743,8 +5744,8 @@ struct MMA_64x80x16_F32BF16BF16_SS
         "+f"(d32), "+f"(d33), "+f"(d34), "+f"(d35),
         "+f"(d36), "+f"(d37), "+f"(d38), "+f"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -5814,8 +5815,8 @@ struct MMA_64x80x16_F32BF16BF16_RS
         "+f"(d32), "+f"(d33), "+f"(d34), "+f"(d35),
         "+f"(d36), "+f"(d37), "+f"(d38), "+f"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -5886,8 +5887,8 @@ struct MMA_64x96x16_F32BF16BF16_SS
         "+f"(d40), "+f"(d41), "+f"(d42), "+f"(d43),
         "+f"(d44), "+f"(d45), "+f"(d46), "+f"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -5960,8 +5961,8 @@ struct MMA_64x96x16_F32BF16BF16_RS
         "+f"(d40), "+f"(d41), "+f"(d42), "+f"(d43),
         "+f"(d44), "+f"(d45), "+f"(d46), "+f"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -6037,8 +6038,8 @@ struct MMA_64x112x16_F32BF16BF16_SS
         "+f"(d48), "+f"(d49), "+f"(d50), "+f"(d51),
         "+f"(d52), "+f"(d53), "+f"(d54), "+f"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -6118,8 +6119,8 @@ struct MMA_64x112x16_F32BF16BF16_RS
         "+f"(d48), "+f"(d49), "+f"(d50), "+f"(d51),
         "+f"(d52), "+f"(d53), "+f"(d54), "+f"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -6200,8 +6201,8 @@ struct MMA_64x128x16_F32BF16BF16_SS
         "+f"(d56), "+f"(d57), "+f"(d58), "+f"(d59),
         "+f"(d60), "+f"(d61), "+f"(d62), "+f"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -6284,8 +6285,8 @@ struct MMA_64x128x16_F32BF16BF16_RS
         "+f"(d56), "+f"(d57), "+f"(d58), "+f"(d59),
         "+f"(d60), "+f"(d61), "+f"(d62), "+f"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -6371,8 +6372,8 @@ struct MMA_64x144x16_F32BF16BF16_SS
         "+f"(d64), "+f"(d65), "+f"(d66), "+f"(d67),
         "+f"(d68), "+f"(d69), "+f"(d70), "+f"(d71)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -6462,8 +6463,8 @@ struct MMA_64x144x16_F32BF16BF16_RS
         "+f"(d64), "+f"(d65), "+f"(d66), "+f"(d67),
         "+f"(d68), "+f"(d69), "+f"(d70), "+f"(d71)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -6555,8 +6556,8 @@ struct MMA_64x160x16_F32BF16BF16_SS
         "+f"(d72), "+f"(d73), "+f"(d74), "+f"(d75),
         "+f"(d76), "+f"(d77), "+f"(d78), "+f"(d79)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -6651,8 +6652,8 @@ struct MMA_64x160x16_F32BF16BF16_RS
         "+f"(d72), "+f"(d73), "+f"(d74), "+f"(d75),
         "+f"(d76), "+f"(d77), "+f"(d78), "+f"(d79)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -6749,8 +6750,8 @@ struct MMA_64x176x16_F32BF16BF16_SS
         "+f"(d80), "+f"(d81), "+f"(d82), "+f"(d83),
         "+f"(d84), "+f"(d85), "+f"(d86), "+f"(d87)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -6850,8 +6851,8 @@ struct MMA_64x176x16_F32BF16BF16_RS
         "+f"(d80), "+f"(d81), "+f"(d82), "+f"(d83),
         "+f"(d84), "+f"(d85), "+f"(d86), "+f"(d87)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -6952,8 +6953,8 @@ struct MMA_64x192x16_F32BF16BF16_SS
         "+f"(d88), "+f"(d89), "+f"(d90), "+f"(d91),
         "+f"(d92), "+f"(d93), "+f"(d94), "+f"(d95)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -7056,8 +7057,8 @@ struct MMA_64x192x16_F32BF16BF16_RS
         "+f"(d88), "+f"(d89), "+f"(d90), "+f"(d91),
         "+f"(d92), "+f"(d93), "+f"(d94), "+f"(d95)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -7163,8 +7164,8 @@ struct MMA_64x208x16_F32BF16BF16_SS
         "+f"(d096), "+f"(d097), "+f"(d098), "+f"(d099),
         "+f"(d100), "+f"(d101), "+f"(d102), "+f"(d103)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -7274,8 +7275,8 @@ struct MMA_64x208x16_F32BF16BF16_RS
         "+f"(d096), "+f"(d097), "+f"(d098), "+f"(d099),
         "+f"(d100), "+f"(d101), "+f"(d102), "+f"(d103)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -7387,8 +7388,8 @@ struct MMA_64x224x16_F32BF16BF16_SS
         "+f"(d104), "+f"(d105), "+f"(d106), "+f"(d107),
         "+f"(d108), "+f"(d109), "+f"(d110), "+f"(d111)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -7503,8 +7504,8 @@ struct MMA_64x224x16_F32BF16BF16_RS
         "+f"(d104), "+f"(d105), "+f"(d106), "+f"(d107),
         "+f"(d108), "+f"(d109), "+f"(d110), "+f"(d111)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -7621,8 +7622,8 @@ struct MMA_64x240x16_F32BF16BF16_SS
         "+f"(d112), "+f"(d113), "+f"(d114), "+f"(d115),
         "+f"(d116), "+f"(d117), "+f"(d118), "+f"(d119)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -7742,8 +7743,8 @@ struct MMA_64x240x16_F32BF16BF16_RS
         "+f"(d112), "+f"(d113), "+f"(d114), "+f"(d115),
         "+f"(d116), "+f"(d117), "+f"(d118), "+f"(d119)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -7864,8 +7865,8 @@ struct MMA_64x256x16_F32BF16BF16_SS
         "+f"(d120), "+f"(d121), "+f"(d122), "+f"(d123),
         "+f"(d124), "+f"(d125), "+f"(d126), "+f"(d127)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspA)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x16_F32BF16BF16_SS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -7988,8 +7989,8 @@ struct MMA_64x256x16_F32BF16BF16_RS
         "+f"(d120), "+f"(d121), "+f"(d122), "+f"(d123),
         "+f"(d124), "+f"(d125), "+f"(d126), "+f"(d127)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)), "n"(int32_t(tnspB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x16_F32BF16BF16_RS without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8030,8 +8031,8 @@ struct MMA_64x8x8_F32TF32TF32_SS_TN
     "}\n"
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8072,8 +8073,8 @@ struct MMA_64x8x8_F32TF32TF32_RS_TN
     "}\n"
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8116,8 +8117,8 @@ struct MMA_64x16x8_F32TF32TF32_SS_TN
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3),
         "+f"(d4), "+f"(d5), "+f"(d6), "+f"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8160,8 +8161,8 @@ struct MMA_64x16x8_F32TF32TF32_RS_TN
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3),
         "+f"(d4), "+f"(d5), "+f"(d6), "+f"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8209,8 +8210,8 @@ struct MMA_64x32x8_F32TF32TF32_SS_TN
         "+f"(d08), "+f"(d09), "+f"(d10), "+f"(d11),
         "+f"(d12), "+f"(d13), "+f"(d14), "+f"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8258,8 +8259,8 @@ struct MMA_64x32x8_F32TF32TF32_RS_TN
         "+f"(d08), "+f"(d09), "+f"(d10), "+f"(d11),
         "+f"(d12), "+f"(d13), "+f"(d14), "+f"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8313,8 +8314,8 @@ struct MMA_64x48x8_F32TF32TF32_SS_TN
         "+f"(d16), "+f"(d17), "+f"(d18), "+f"(d19),
         "+f"(d20), "+f"(d21), "+f"(d22), "+f"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8369,8 +8370,8 @@ struct MMA_64x48x8_F32TF32TF32_RS_TN
         "+f"(d16), "+f"(d17), "+f"(d18), "+f"(d19),
         "+f"(d20), "+f"(d21), "+f"(d22), "+f"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8429,8 +8430,8 @@ struct MMA_64x64x8_F32TF32TF32_SS_TN
         "+f"(d24), "+f"(d25), "+f"(d26), "+f"(d27),
         "+f"(d28), "+f"(d29), "+f"(d30), "+f"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8488,8 +8489,8 @@ struct MMA_64x64x8_F32TF32TF32_RS_TN
         "+f"(d24), "+f"(d25), "+f"(d26), "+f"(d27),
         "+f"(d28), "+f"(d29), "+f"(d30), "+f"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8553,8 +8554,8 @@ struct MMA_64x80x8_F32TF32TF32_SS_TN
         "+f"(d32), "+f"(d33), "+f"(d34), "+f"(d35),
         "+f"(d36), "+f"(d37), "+f"(d38), "+f"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8619,8 +8620,8 @@ struct MMA_64x80x8_F32TF32TF32_RS_TN
         "+f"(d32), "+f"(d33), "+f"(d34), "+f"(d35),
         "+f"(d36), "+f"(d37), "+f"(d38), "+f"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8689,8 +8690,8 @@ struct MMA_64x96x8_F32TF32TF32_SS_TN
         "+f"(d40), "+f"(d41), "+f"(d42), "+f"(d43),
         "+f"(d44), "+f"(d45), "+f"(d46), "+f"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8758,8 +8759,8 @@ struct MMA_64x96x8_F32TF32TF32_RS_TN
         "+f"(d40), "+f"(d41), "+f"(d42), "+f"(d43),
         "+f"(d44), "+f"(d45), "+f"(d46), "+f"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8833,8 +8834,8 @@ struct MMA_64x112x8_F32TF32TF32_SS_TN
         "+f"(d48), "+f"(d49), "+f"(d50), "+f"(d51),
         "+f"(d52), "+f"(d53), "+f"(d54), "+f"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8909,8 +8910,8 @@ struct MMA_64x112x8_F32TF32TF32_RS_TN
         "+f"(d48), "+f"(d49), "+f"(d50), "+f"(d51),
         "+f"(d52), "+f"(d53), "+f"(d54), "+f"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -8989,8 +8990,8 @@ struct MMA_64x128x8_F32TF32TF32_SS_TN
         "+f"(d56), "+f"(d57), "+f"(d58), "+f"(d59),
         "+f"(d60), "+f"(d61), "+f"(d62), "+f"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -9068,8 +9069,8 @@ struct MMA_64x128x8_F32TF32TF32_RS_TN
         "+f"(d56), "+f"(d57), "+f"(d58), "+f"(d59),
         "+f"(d60), "+f"(d61), "+f"(d62), "+f"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -9153,8 +9154,8 @@ struct MMA_64x144x8_F32TF32TF32_SS_TN
         "+f"(d64), "+f"(d65), "+f"(d66), "+f"(d67),
         "+f"(d68), "+f"(d69), "+f"(d70), "+f"(d71)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -9239,8 +9240,8 @@ struct MMA_64x144x8_F32TF32TF32_RS_TN
         "+f"(d64), "+f"(d65), "+f"(d66), "+f"(d67),
         "+f"(d68), "+f"(d69), "+f"(d70), "+f"(d71)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -9330,8 +9331,8 @@ struct MMA_64x160x8_F32TF32TF32_SS_TN
         "+f"(d72), "+f"(d73), "+f"(d74), "+f"(d75),
         "+f"(d76), "+f"(d77), "+f"(d78), "+f"(d79)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -9421,8 +9422,8 @@ struct MMA_64x160x8_F32TF32TF32_RS_TN
         "+f"(d72), "+f"(d73), "+f"(d74), "+f"(d75),
         "+f"(d76), "+f"(d77), "+f"(d78), "+f"(d79)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -9517,8 +9518,8 @@ struct MMA_64x176x8_F32TF32TF32_SS_TN
         "+f"(d80), "+f"(d81), "+f"(d82), "+f"(d83),
         "+f"(d84), "+f"(d85), "+f"(d86), "+f"(d87)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -9613,8 +9614,8 @@ struct MMA_64x176x8_F32TF32TF32_RS_TN
         "+f"(d80), "+f"(d81), "+f"(d82), "+f"(d83),
         "+f"(d84), "+f"(d85), "+f"(d86), "+f"(d87)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -9713,8 +9714,8 @@ struct MMA_64x192x8_F32TF32TF32_SS_TN
         "+f"(d88), "+f"(d89), "+f"(d90), "+f"(d91),
         "+f"(d92), "+f"(d93), "+f"(d94), "+f"(d95)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -9812,8 +9813,8 @@ struct MMA_64x192x8_F32TF32TF32_RS_TN
         "+f"(d88), "+f"(d89), "+f"(d90), "+f"(d91),
         "+f"(d92), "+f"(d93), "+f"(d94), "+f"(d95)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -9917,8 +9918,8 @@ struct MMA_64x208x8_F32TF32TF32_SS_TN
         "+f"(d096), "+f"(d097), "+f"(d098), "+f"(d099),
         "+f"(d100), "+f"(d101), "+f"(d102), "+f"(d103)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -10023,8 +10024,8 @@ struct MMA_64x208x8_F32TF32TF32_RS_TN
         "+f"(d096), "+f"(d097), "+f"(d098), "+f"(d099),
         "+f"(d100), "+f"(d101), "+f"(d102), "+f"(d103)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -10134,8 +10135,8 @@ struct MMA_64x224x8_F32TF32TF32_SS_TN
         "+f"(d104), "+f"(d105), "+f"(d106), "+f"(d107),
         "+f"(d108), "+f"(d109), "+f"(d110), "+f"(d111)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -10245,8 +10246,8 @@ struct MMA_64x224x8_F32TF32TF32_RS_TN
         "+f"(d104), "+f"(d105), "+f"(d106), "+f"(d107),
         "+f"(d108), "+f"(d109), "+f"(d110), "+f"(d111)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -10361,8 +10362,8 @@ struct MMA_64x240x8_F32TF32TF32_SS_TN
         "+f"(d112), "+f"(d113), "+f"(d114), "+f"(d115),
         "+f"(d116), "+f"(d117), "+f"(d118), "+f"(d119)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -10477,8 +10478,8 @@ struct MMA_64x240x8_F32TF32TF32_RS_TN
         "+f"(d112), "+f"(d113), "+f"(d114), "+f"(d115),
         "+f"(d116), "+f"(d117), "+f"(d118), "+f"(d119)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -10597,8 +10598,8 @@ struct MMA_64x256x8_F32TF32TF32_SS_TN
         "+f"(d120), "+f"(d121), "+f"(d122), "+f"(d123),
         "+f"(d124), "+f"(d125), "+f"(d126), "+f"(d127)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x8_F32TF32TF32_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -10716,8 +10717,8 @@ struct MMA_64x256x8_F32TF32TF32_RS_TN
         "+f"(d120), "+f"(d121), "+f"(d122), "+f"(d123),
         "+f"(d124), "+f"(d125), "+f"(d126), "+f"(d127)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x8_F32TF32TF32_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -10754,8 +10755,8 @@ struct MMA_64x8x32_S32S8S8_SS_TN
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -10792,8 +10793,8 @@ struct MMA_64x8x32_S32S8S8_SS_TN_SATURATE
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -10832,8 +10833,8 @@ struct MMA_64x16x32_S32S8S8_SS_TN
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -10872,8 +10873,8 @@ struct MMA_64x16x32_S32S8S8_SS_TN_SATURATE
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -10917,8 +10918,8 @@ struct MMA_64x32x32_S32S8S8_SS_TN
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -10962,8 +10963,8 @@ struct MMA_64x32x32_S32S8S8_SS_TN_SATURATE
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -11013,8 +11014,8 @@ struct MMA_64x48x32_S32S8S8_SS_TN
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -11065,8 +11066,8 @@ struct MMA_64x48x32_S32S8S8_SS_TN_SATURATE
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -11121,8 +11122,8 @@ struct MMA_64x64x32_S32S8S8_SS_TN
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -11176,8 +11177,8 @@ struct MMA_64x64x32_S32S8S8_SS_TN_SATURATE
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -11237,8 +11238,8 @@ struct MMA_64x80x32_S32S8S8_SS_TN
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -11299,8 +11300,8 @@ struct MMA_64x80x32_S32S8S8_SS_TN_SATURATE
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -11365,8 +11366,8 @@ struct MMA_64x96x32_S32S8S8_SS_TN
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -11430,8 +11431,8 @@ struct MMA_64x96x32_S32S8S8_SS_TN_SATURATE
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -11501,8 +11502,8 @@ struct MMA_64x112x32_S32S8S8_SS_TN
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -11573,8 +11574,8 @@ struct MMA_64x112x32_S32S8S8_SS_TN_SATURATE
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -11649,8 +11650,8 @@ struct MMA_64x128x32_S32S8S8_SS_TN
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -11724,8 +11725,8 @@ struct MMA_64x128x32_S32S8S8_SS_TN_SATURATE
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -11805,8 +11806,8 @@ struct MMA_64x144x32_S32S8S8_SS_TN
         "+r"(d64), "+r"(d65), "+r"(d66), "+r"(d67),
         "+r"(d68), "+r"(d69), "+r"(d70), "+r"(d71)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -11887,8 +11888,8 @@ struct MMA_64x144x32_S32S8S8_SS_TN_SATURATE
         "+r"(d64), "+r"(d65), "+r"(d66), "+r"(d67),
         "+r"(d68), "+r"(d69), "+r"(d70), "+r"(d71)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -11974,8 +11975,8 @@ struct MMA_64x160x32_S32S8S8_SS_TN
         "+r"(d72), "+r"(d73), "+r"(d74), "+r"(d75),
         "+r"(d76), "+r"(d77), "+r"(d78), "+r"(d79)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -12061,8 +12062,8 @@ struct MMA_64x160x32_S32S8S8_SS_TN_SATURATE
         "+r"(d72), "+r"(d73), "+r"(d74), "+r"(d75),
         "+r"(d76), "+r"(d77), "+r"(d78), "+r"(d79)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -12153,8 +12154,8 @@ struct MMA_64x176x32_S32S8S8_SS_TN
         "+r"(d80), "+r"(d81), "+r"(d82), "+r"(d83),
         "+r"(d84), "+r"(d85), "+r"(d86), "+r"(d87)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -12245,8 +12246,8 @@ struct MMA_64x176x32_S32S8S8_SS_TN_SATURATE
         "+r"(d80), "+r"(d81), "+r"(d82), "+r"(d83),
         "+r"(d84), "+r"(d85), "+r"(d86), "+r"(d87)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -12341,8 +12342,8 @@ struct MMA_64x192x32_S32S8S8_SS_TN
         "+r"(d88), "+r"(d89), "+r"(d90), "+r"(d91),
         "+r"(d92), "+r"(d93), "+r"(d94), "+r"(d95)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -12436,8 +12437,8 @@ struct MMA_64x192x32_S32S8S8_SS_TN_SATURATE
         "+r"(d88), "+r"(d89), "+r"(d90), "+r"(d91),
         "+r"(d92), "+r"(d93), "+r"(d94), "+r"(d95)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -12537,8 +12538,8 @@ struct MMA_64x208x32_S32S8S8_SS_TN
         "+r"(d096), "+r"(d097), "+r"(d098), "+r"(d099),
         "+r"(d100), "+r"(d101), "+r"(d102), "+r"(d103)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -12639,8 +12640,8 @@ struct MMA_64x208x32_S32S8S8_SS_TN_SATURATE
         "+r"(d096), "+r"(d097), "+r"(d098), "+r"(d099),
         "+r"(d100), "+r"(d101), "+r"(d102), "+r"(d103)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -12746,8 +12747,8 @@ struct MMA_64x224x32_S32S8S8_SS_TN
         "+r"(d104), "+r"(d105), "+r"(d106), "+r"(d107),
         "+r"(d108), "+r"(d109), "+r"(d110), "+r"(d111)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -12853,8 +12854,8 @@ struct MMA_64x224x32_S32S8S8_SS_TN_SATURATE
         "+r"(d104), "+r"(d105), "+r"(d106), "+r"(d107),
         "+r"(d108), "+r"(d109), "+r"(d110), "+r"(d111)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -12965,8 +12966,8 @@ struct MMA_64x240x32_S32S8S8_SS_TN
         "+r"(d112), "+r"(d113), "+r"(d114), "+r"(d115),
         "+r"(d116), "+r"(d117), "+r"(d118), "+r"(d119)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -13077,8 +13078,8 @@ struct MMA_64x240x32_S32S8S8_SS_TN_SATURATE
         "+r"(d112), "+r"(d113), "+r"(d114), "+r"(d115),
         "+r"(d116), "+r"(d117), "+r"(d118), "+r"(d119)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -13193,8 +13194,8 @@ struct MMA_64x256x32_S32S8S8_SS_TN
         "+r"(d120), "+r"(d121), "+r"(d122), "+r"(d123),
         "+r"(d124), "+r"(d125), "+r"(d126), "+r"(d127)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_S32S8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -13308,8 +13309,8 @@ struct MMA_64x256x32_S32S8S8_SS_TN_SATURATE
         "+r"(d120), "+r"(d121), "+r"(d122), "+r"(d123),
         "+r"(d124), "+r"(d125), "+r"(d126), "+r"(d127)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_S32S8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -13346,8 +13347,8 @@ struct MMA_64x8x32_S32S8S8_RS_TN
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -13384,8 +13385,8 @@ struct MMA_64x8x32_S32S8S8_RS_TN_SATURATE
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -13424,8 +13425,8 @@ struct MMA_64x16x32_S32S8S8_RS_TN
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -13464,8 +13465,8 @@ struct MMA_64x16x32_S32S8S8_RS_TN_SATURATE
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -13509,8 +13510,8 @@ struct MMA_64x32x32_S32S8S8_RS_TN
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -13554,8 +13555,8 @@ struct MMA_64x32x32_S32S8S8_RS_TN_SATURATE
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -13605,8 +13606,8 @@ struct MMA_64x48x32_S32S8S8_RS_TN
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -13657,8 +13658,8 @@ struct MMA_64x48x32_S32S8S8_RS_TN_SATURATE
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -13713,8 +13714,8 @@ struct MMA_64x64x32_S32S8S8_RS_TN
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -13768,8 +13769,8 @@ struct MMA_64x64x32_S32S8S8_RS_TN_SATURATE
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -13829,8 +13830,8 @@ struct MMA_64x80x32_S32S8S8_RS_TN
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -13891,8 +13892,8 @@ struct MMA_64x80x32_S32S8S8_RS_TN_SATURATE
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -13957,8 +13958,8 @@ struct MMA_64x96x32_S32S8S8_RS_TN
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -14022,8 +14023,8 @@ struct MMA_64x96x32_S32S8S8_RS_TN_SATURATE
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -14093,8 +14094,8 @@ struct MMA_64x112x32_S32S8S8_RS_TN
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -14165,8 +14166,8 @@ struct MMA_64x112x32_S32S8S8_RS_TN_SATURATE
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -14241,8 +14242,8 @@ struct MMA_64x128x32_S32S8S8_RS_TN
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -14316,8 +14317,8 @@ struct MMA_64x128x32_S32S8S8_RS_TN_SATURATE
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -14397,8 +14398,8 @@ struct MMA_64x144x32_S32S8S8_RS_TN
         "+r"(d64), "+r"(d65), "+r"(d66), "+r"(d67),
         "+r"(d68), "+r"(d69), "+r"(d70), "+r"(d71)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -14479,8 +14480,8 @@ struct MMA_64x144x32_S32S8S8_RS_TN_SATURATE
         "+r"(d64), "+r"(d65), "+r"(d66), "+r"(d67),
         "+r"(d68), "+r"(d69), "+r"(d70), "+r"(d71)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -14566,8 +14567,8 @@ struct MMA_64x160x32_S32S8S8_RS_TN
         "+r"(d72), "+r"(d73), "+r"(d74), "+r"(d75),
         "+r"(d76), "+r"(d77), "+r"(d78), "+r"(d79)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -14653,8 +14654,8 @@ struct MMA_64x160x32_S32S8S8_RS_TN_SATURATE
         "+r"(d72), "+r"(d73), "+r"(d74), "+r"(d75),
         "+r"(d76), "+r"(d77), "+r"(d78), "+r"(d79)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -14745,8 +14746,8 @@ struct MMA_64x176x32_S32S8S8_RS_TN
         "+r"(d80), "+r"(d81), "+r"(d82), "+r"(d83),
         "+r"(d84), "+r"(d85), "+r"(d86), "+r"(d87)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -14837,8 +14838,8 @@ struct MMA_64x176x32_S32S8S8_RS_TN_SATURATE
         "+r"(d80), "+r"(d81), "+r"(d82), "+r"(d83),
         "+r"(d84), "+r"(d85), "+r"(d86), "+r"(d87)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -14933,8 +14934,8 @@ struct MMA_64x192x32_S32S8S8_RS_TN
         "+r"(d88), "+r"(d89), "+r"(d90), "+r"(d91),
         "+r"(d92), "+r"(d93), "+r"(d94), "+r"(d95)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -15028,8 +15029,8 @@ struct MMA_64x192x32_S32S8S8_RS_TN_SATURATE
         "+r"(d88), "+r"(d89), "+r"(d90), "+r"(d91),
         "+r"(d92), "+r"(d93), "+r"(d94), "+r"(d95)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -15129,8 +15130,8 @@ struct MMA_64x208x32_S32S8S8_RS_TN
         "+r"(d096), "+r"(d097), "+r"(d098), "+r"(d099),
         "+r"(d100), "+r"(d101), "+r"(d102), "+r"(d103)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -15231,8 +15232,8 @@ struct MMA_64x208x32_S32S8S8_RS_TN_SATURATE
         "+r"(d096), "+r"(d097), "+r"(d098), "+r"(d099),
         "+r"(d100), "+r"(d101), "+r"(d102), "+r"(d103)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -15338,8 +15339,8 @@ struct MMA_64x224x32_S32S8S8_RS_TN
         "+r"(d104), "+r"(d105), "+r"(d106), "+r"(d107),
         "+r"(d108), "+r"(d109), "+r"(d110), "+r"(d111)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -15445,8 +15446,8 @@ struct MMA_64x224x32_S32S8S8_RS_TN_SATURATE
         "+r"(d104), "+r"(d105), "+r"(d106), "+r"(d107),
         "+r"(d108), "+r"(d109), "+r"(d110), "+r"(d111)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -15557,8 +15558,8 @@ struct MMA_64x240x32_S32S8S8_RS_TN
         "+r"(d112), "+r"(d113), "+r"(d114), "+r"(d115),
         "+r"(d116), "+r"(d117), "+r"(d118), "+r"(d119)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -15669,8 +15670,8 @@ struct MMA_64x240x32_S32S8S8_RS_TN_SATURATE
         "+r"(d112), "+r"(d113), "+r"(d114), "+r"(d115),
         "+r"(d116), "+r"(d117), "+r"(d118), "+r"(d119)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -15785,8 +15786,8 @@ struct MMA_64x256x32_S32S8S8_RS_TN
         "+r"(d120), "+r"(d121), "+r"(d122), "+r"(d123),
         "+r"(d124), "+r"(d125), "+r"(d126), "+r"(d127)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_S32S8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -15900,8 +15901,8 @@ struct MMA_64x256x32_S32S8S8_RS_TN_SATURATE
         "+r"(d120), "+r"(d121), "+r"(d122), "+r"(d123),
         "+r"(d124), "+r"(d125), "+r"(d126), "+r"(d127)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_S32S8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -15938,8 +15939,8 @@ struct MMA_64x8x32_S32S8U8_SS_TN
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -15976,8 +15977,8 @@ struct MMA_64x8x32_S32S8U8_SS_TN_SATURATE
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16016,8 +16017,8 @@ struct MMA_64x16x32_S32S8U8_SS_TN
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16056,8 +16057,8 @@ struct MMA_64x16x32_S32S8U8_SS_TN_SATURATE
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16101,8 +16102,8 @@ struct MMA_64x32x32_S32S8U8_SS_TN
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16146,8 +16147,8 @@ struct MMA_64x32x32_S32S8U8_SS_TN_SATURATE
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16197,8 +16198,8 @@ struct MMA_64x48x32_S32S8U8_SS_TN
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16249,8 +16250,8 @@ struct MMA_64x48x32_S32S8U8_SS_TN_SATURATE
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16305,8 +16306,8 @@ struct MMA_64x64x32_S32S8U8_SS_TN
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16360,8 +16361,8 @@ struct MMA_64x64x32_S32S8U8_SS_TN_SATURATE
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16421,8 +16422,8 @@ struct MMA_64x80x32_S32S8U8_SS_TN
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16483,8 +16484,8 @@ struct MMA_64x80x32_S32S8U8_SS_TN_SATURATE
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16549,8 +16550,8 @@ struct MMA_64x96x32_S32S8U8_SS_TN
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16614,8 +16615,8 @@ struct MMA_64x96x32_S32S8U8_SS_TN_SATURATE
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16685,8 +16686,8 @@ struct MMA_64x112x32_S32S8U8_SS_TN
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16757,8 +16758,8 @@ struct MMA_64x112x32_S32S8U8_SS_TN_SATURATE
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16833,8 +16834,8 @@ struct MMA_64x128x32_S32S8U8_SS_TN
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16908,8 +16909,8 @@ struct MMA_64x128x32_S32S8U8_SS_TN_SATURATE
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -16989,8 +16990,8 @@ struct MMA_64x144x32_S32S8U8_SS_TN
         "+r"(d64), "+r"(d65), "+r"(d66), "+r"(d67),
         "+r"(d68), "+r"(d69), "+r"(d70), "+r"(d71)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -17071,8 +17072,8 @@ struct MMA_64x144x32_S32S8U8_SS_TN_SATURATE
         "+r"(d64), "+r"(d65), "+r"(d66), "+r"(d67),
         "+r"(d68), "+r"(d69), "+r"(d70), "+r"(d71)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -17158,8 +17159,8 @@ struct MMA_64x160x32_S32S8U8_SS_TN
         "+r"(d72), "+r"(d73), "+r"(d74), "+r"(d75),
         "+r"(d76), "+r"(d77), "+r"(d78), "+r"(d79)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -17245,8 +17246,8 @@ struct MMA_64x160x32_S32S8U8_SS_TN_SATURATE
         "+r"(d72), "+r"(d73), "+r"(d74), "+r"(d75),
         "+r"(d76), "+r"(d77), "+r"(d78), "+r"(d79)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -17337,8 +17338,8 @@ struct MMA_64x176x32_S32S8U8_SS_TN
         "+r"(d80), "+r"(d81), "+r"(d82), "+r"(d83),
         "+r"(d84), "+r"(d85), "+r"(d86), "+r"(d87)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -17429,8 +17430,8 @@ struct MMA_64x176x32_S32S8U8_SS_TN_SATURATE
         "+r"(d80), "+r"(d81), "+r"(d82), "+r"(d83),
         "+r"(d84), "+r"(d85), "+r"(d86), "+r"(d87)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -17525,8 +17526,8 @@ struct MMA_64x192x32_S32S8U8_SS_TN
         "+r"(d88), "+r"(d89), "+r"(d90), "+r"(d91),
         "+r"(d92), "+r"(d93), "+r"(d94), "+r"(d95)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -17620,8 +17621,8 @@ struct MMA_64x192x32_S32S8U8_SS_TN_SATURATE
         "+r"(d88), "+r"(d89), "+r"(d90), "+r"(d91),
         "+r"(d92), "+r"(d93), "+r"(d94), "+r"(d95)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -17721,8 +17722,8 @@ struct MMA_64x208x32_S32S8U8_SS_TN
         "+r"(d096), "+r"(d097), "+r"(d098), "+r"(d099),
         "+r"(d100), "+r"(d101), "+r"(d102), "+r"(d103)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -17823,8 +17824,8 @@ struct MMA_64x208x32_S32S8U8_SS_TN_SATURATE
         "+r"(d096), "+r"(d097), "+r"(d098), "+r"(d099),
         "+r"(d100), "+r"(d101), "+r"(d102), "+r"(d103)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -17930,8 +17931,8 @@ struct MMA_64x224x32_S32S8U8_SS_TN
         "+r"(d104), "+r"(d105), "+r"(d106), "+r"(d107),
         "+r"(d108), "+r"(d109), "+r"(d110), "+r"(d111)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -18037,8 +18038,8 @@ struct MMA_64x224x32_S32S8U8_SS_TN_SATURATE
         "+r"(d104), "+r"(d105), "+r"(d106), "+r"(d107),
         "+r"(d108), "+r"(d109), "+r"(d110), "+r"(d111)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -18149,8 +18150,8 @@ struct MMA_64x240x32_S32S8U8_SS_TN
         "+r"(d112), "+r"(d113), "+r"(d114), "+r"(d115),
         "+r"(d116), "+r"(d117), "+r"(d118), "+r"(d119)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -18261,8 +18262,8 @@ struct MMA_64x240x32_S32S8U8_SS_TN_SATURATE
         "+r"(d112), "+r"(d113), "+r"(d114), "+r"(d115),
         "+r"(d116), "+r"(d117), "+r"(d118), "+r"(d119)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -18377,8 +18378,8 @@ struct MMA_64x256x32_S32S8U8_SS_TN
         "+r"(d120), "+r"(d121), "+r"(d122), "+r"(d123),
         "+r"(d124), "+r"(d125), "+r"(d126), "+r"(d127)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_S32S8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -18492,8 +18493,8 @@ struct MMA_64x256x32_S32S8U8_SS_TN_SATURATE
         "+r"(d120), "+r"(d121), "+r"(d122), "+r"(d123),
         "+r"(d124), "+r"(d125), "+r"(d126), "+r"(d127)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_S32S8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -18530,8 +18531,8 @@ struct MMA_64x8x32_S32S8U8_RS_TN
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -18568,8 +18569,8 @@ struct MMA_64x8x32_S32S8U8_RS_TN_SATURATE
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -18608,8 +18609,8 @@ struct MMA_64x16x32_S32S8U8_RS_TN
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -18648,8 +18649,8 @@ struct MMA_64x16x32_S32S8U8_RS_TN_SATURATE
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -18693,8 +18694,8 @@ struct MMA_64x32x32_S32S8U8_RS_TN
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -18738,8 +18739,8 @@ struct MMA_64x32x32_S32S8U8_RS_TN_SATURATE
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -18789,8 +18790,8 @@ struct MMA_64x48x32_S32S8U8_RS_TN
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -18841,8 +18842,8 @@ struct MMA_64x48x32_S32S8U8_RS_TN_SATURATE
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -18897,8 +18898,8 @@ struct MMA_64x64x32_S32S8U8_RS_TN
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -18952,8 +18953,8 @@ struct MMA_64x64x32_S32S8U8_RS_TN_SATURATE
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -19013,8 +19014,8 @@ struct MMA_64x80x32_S32S8U8_RS_TN
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -19075,8 +19076,8 @@ struct MMA_64x80x32_S32S8U8_RS_TN_SATURATE
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -19141,8 +19142,8 @@ struct MMA_64x96x32_S32S8U8_RS_TN
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -19206,8 +19207,8 @@ struct MMA_64x96x32_S32S8U8_RS_TN_SATURATE
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -19277,8 +19278,8 @@ struct MMA_64x112x32_S32S8U8_RS_TN
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -19349,8 +19350,8 @@ struct MMA_64x112x32_S32S8U8_RS_TN_SATURATE
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -19425,8 +19426,8 @@ struct MMA_64x128x32_S32S8U8_RS_TN
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -19500,8 +19501,8 @@ struct MMA_64x128x32_S32S8U8_RS_TN_SATURATE
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -19581,8 +19582,8 @@ struct MMA_64x144x32_S32S8U8_RS_TN
         "+r"(d64), "+r"(d65), "+r"(d66), "+r"(d67),
         "+r"(d68), "+r"(d69), "+r"(d70), "+r"(d71)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -19663,8 +19664,8 @@ struct MMA_64x144x32_S32S8U8_RS_TN_SATURATE
         "+r"(d64), "+r"(d65), "+r"(d66), "+r"(d67),
         "+r"(d68), "+r"(d69), "+r"(d70), "+r"(d71)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -19750,8 +19751,8 @@ struct MMA_64x160x32_S32S8U8_RS_TN
         "+r"(d72), "+r"(d73), "+r"(d74), "+r"(d75),
         "+r"(d76), "+r"(d77), "+r"(d78), "+r"(d79)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -19837,8 +19838,8 @@ struct MMA_64x160x32_S32S8U8_RS_TN_SATURATE
         "+r"(d72), "+r"(d73), "+r"(d74), "+r"(d75),
         "+r"(d76), "+r"(d77), "+r"(d78), "+r"(d79)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -19929,8 +19930,8 @@ struct MMA_64x176x32_S32S8U8_RS_TN
         "+r"(d80), "+r"(d81), "+r"(d82), "+r"(d83),
         "+r"(d84), "+r"(d85), "+r"(d86), "+r"(d87)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -20021,8 +20022,8 @@ struct MMA_64x176x32_S32S8U8_RS_TN_SATURATE
         "+r"(d80), "+r"(d81), "+r"(d82), "+r"(d83),
         "+r"(d84), "+r"(d85), "+r"(d86), "+r"(d87)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -20117,8 +20118,8 @@ struct MMA_64x192x32_S32S8U8_RS_TN
         "+r"(d88), "+r"(d89), "+r"(d90), "+r"(d91),
         "+r"(d92), "+r"(d93), "+r"(d94), "+r"(d95)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -20212,8 +20213,8 @@ struct MMA_64x192x32_S32S8U8_RS_TN_SATURATE
         "+r"(d88), "+r"(d89), "+r"(d90), "+r"(d91),
         "+r"(d92), "+r"(d93), "+r"(d94), "+r"(d95)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -20313,8 +20314,8 @@ struct MMA_64x208x32_S32S8U8_RS_TN
         "+r"(d096), "+r"(d097), "+r"(d098), "+r"(d099),
         "+r"(d100), "+r"(d101), "+r"(d102), "+r"(d103)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -20415,8 +20416,8 @@ struct MMA_64x208x32_S32S8U8_RS_TN_SATURATE
         "+r"(d096), "+r"(d097), "+r"(d098), "+r"(d099),
         "+r"(d100), "+r"(d101), "+r"(d102), "+r"(d103)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -20522,8 +20523,8 @@ struct MMA_64x224x32_S32S8U8_RS_TN
         "+r"(d104), "+r"(d105), "+r"(d106), "+r"(d107),
         "+r"(d108), "+r"(d109), "+r"(d110), "+r"(d111)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -20629,8 +20630,8 @@ struct MMA_64x224x32_S32S8U8_RS_TN_SATURATE
         "+r"(d104), "+r"(d105), "+r"(d106), "+r"(d107),
         "+r"(d108), "+r"(d109), "+r"(d110), "+r"(d111)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -20741,8 +20742,8 @@ struct MMA_64x240x32_S32S8U8_RS_TN
         "+r"(d112), "+r"(d113), "+r"(d114), "+r"(d115),
         "+r"(d116), "+r"(d117), "+r"(d118), "+r"(d119)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -20853,8 +20854,8 @@ struct MMA_64x240x32_S32S8U8_RS_TN_SATURATE
         "+r"(d112), "+r"(d113), "+r"(d114), "+r"(d115),
         "+r"(d116), "+r"(d117), "+r"(d118), "+r"(d119)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -20969,8 +20970,8 @@ struct MMA_64x256x32_S32S8U8_RS_TN
         "+r"(d120), "+r"(d121), "+r"(d122), "+r"(d123),
         "+r"(d124), "+r"(d125), "+r"(d126), "+r"(d127)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_S32S8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21084,8 +21085,8 @@ struct MMA_64x256x32_S32S8U8_RS_TN_SATURATE
         "+r"(d120), "+r"(d121), "+r"(d122), "+r"(d123),
         "+r"(d124), "+r"(d125), "+r"(d126), "+r"(d127)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_S32S8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21122,8 +21123,8 @@ struct MMA_64x8x32_S32U8S8_SS_TN
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21160,8 +21161,8 @@ struct MMA_64x8x32_S32U8S8_SS_TN_SATURATE
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21200,8 +21201,8 @@ struct MMA_64x16x32_S32U8S8_SS_TN
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21240,8 +21241,8 @@ struct MMA_64x16x32_S32U8S8_SS_TN_SATURATE
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21285,8 +21286,8 @@ struct MMA_64x32x32_S32U8S8_SS_TN
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21330,8 +21331,8 @@ struct MMA_64x32x32_S32U8S8_SS_TN_SATURATE
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21381,8 +21382,8 @@ struct MMA_64x48x32_S32U8S8_SS_TN
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21433,8 +21434,8 @@ struct MMA_64x48x32_S32U8S8_SS_TN_SATURATE
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21489,8 +21490,8 @@ struct MMA_64x64x32_S32U8S8_SS_TN
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21544,8 +21545,8 @@ struct MMA_64x64x32_S32U8S8_SS_TN_SATURATE
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21605,8 +21606,8 @@ struct MMA_64x80x32_S32U8S8_SS_TN
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21667,8 +21668,8 @@ struct MMA_64x80x32_S32U8S8_SS_TN_SATURATE
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21733,8 +21734,8 @@ struct MMA_64x96x32_S32U8S8_SS_TN
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21798,8 +21799,8 @@ struct MMA_64x96x32_S32U8S8_SS_TN_SATURATE
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21869,8 +21870,8 @@ struct MMA_64x112x32_S32U8S8_SS_TN
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -21941,8 +21942,8 @@ struct MMA_64x112x32_S32U8S8_SS_TN_SATURATE
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -22017,8 +22018,8 @@ struct MMA_64x128x32_S32U8S8_SS_TN
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -22092,8 +22093,8 @@ struct MMA_64x128x32_S32U8S8_SS_TN_SATURATE
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -22173,8 +22174,8 @@ struct MMA_64x144x32_S32U8S8_SS_TN
         "+r"(d64), "+r"(d65), "+r"(d66), "+r"(d67),
         "+r"(d68), "+r"(d69), "+r"(d70), "+r"(d71)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -22255,8 +22256,8 @@ struct MMA_64x144x32_S32U8S8_SS_TN_SATURATE
         "+r"(d64), "+r"(d65), "+r"(d66), "+r"(d67),
         "+r"(d68), "+r"(d69), "+r"(d70), "+r"(d71)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -22342,8 +22343,8 @@ struct MMA_64x160x32_S32U8S8_SS_TN
         "+r"(d72), "+r"(d73), "+r"(d74), "+r"(d75),
         "+r"(d76), "+r"(d77), "+r"(d78), "+r"(d79)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -22429,8 +22430,8 @@ struct MMA_64x160x32_S32U8S8_SS_TN_SATURATE
         "+r"(d72), "+r"(d73), "+r"(d74), "+r"(d75),
         "+r"(d76), "+r"(d77), "+r"(d78), "+r"(d79)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -22521,8 +22522,8 @@ struct MMA_64x176x32_S32U8S8_SS_TN
         "+r"(d80), "+r"(d81), "+r"(d82), "+r"(d83),
         "+r"(d84), "+r"(d85), "+r"(d86), "+r"(d87)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -22613,8 +22614,8 @@ struct MMA_64x176x32_S32U8S8_SS_TN_SATURATE
         "+r"(d80), "+r"(d81), "+r"(d82), "+r"(d83),
         "+r"(d84), "+r"(d85), "+r"(d86), "+r"(d87)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -22709,8 +22710,8 @@ struct MMA_64x192x32_S32U8S8_SS_TN
         "+r"(d88), "+r"(d89), "+r"(d90), "+r"(d91),
         "+r"(d92), "+r"(d93), "+r"(d94), "+r"(d95)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -22804,8 +22805,8 @@ struct MMA_64x192x32_S32U8S8_SS_TN_SATURATE
         "+r"(d88), "+r"(d89), "+r"(d90), "+r"(d91),
         "+r"(d92), "+r"(d93), "+r"(d94), "+r"(d95)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -22905,8 +22906,8 @@ struct MMA_64x208x32_S32U8S8_SS_TN
         "+r"(d096), "+r"(d097), "+r"(d098), "+r"(d099),
         "+r"(d100), "+r"(d101), "+r"(d102), "+r"(d103)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -23007,8 +23008,8 @@ struct MMA_64x208x32_S32U8S8_SS_TN_SATURATE
         "+r"(d096), "+r"(d097), "+r"(d098), "+r"(d099),
         "+r"(d100), "+r"(d101), "+r"(d102), "+r"(d103)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -23114,8 +23115,8 @@ struct MMA_64x224x32_S32U8S8_SS_TN
         "+r"(d104), "+r"(d105), "+r"(d106), "+r"(d107),
         "+r"(d108), "+r"(d109), "+r"(d110), "+r"(d111)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -23221,8 +23222,8 @@ struct MMA_64x224x32_S32U8S8_SS_TN_SATURATE
         "+r"(d104), "+r"(d105), "+r"(d106), "+r"(d107),
         "+r"(d108), "+r"(d109), "+r"(d110), "+r"(d111)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -23333,8 +23334,8 @@ struct MMA_64x240x32_S32U8S8_SS_TN
         "+r"(d112), "+r"(d113), "+r"(d114), "+r"(d115),
         "+r"(d116), "+r"(d117), "+r"(d118), "+r"(d119)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -23445,8 +23446,8 @@ struct MMA_64x240x32_S32U8S8_SS_TN_SATURATE
         "+r"(d112), "+r"(d113), "+r"(d114), "+r"(d115),
         "+r"(d116), "+r"(d117), "+r"(d118), "+r"(d119)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -23561,8 +23562,8 @@ struct MMA_64x256x32_S32U8S8_SS_TN
         "+r"(d120), "+r"(d121), "+r"(d122), "+r"(d123),
         "+r"(d124), "+r"(d125), "+r"(d126), "+r"(d127)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_S32U8S8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -23676,8 +23677,8 @@ struct MMA_64x256x32_S32U8S8_SS_TN_SATURATE
         "+r"(d120), "+r"(d121), "+r"(d122), "+r"(d123),
         "+r"(d124), "+r"(d125), "+r"(d126), "+r"(d127)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_S32U8S8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -23714,8 +23715,8 @@ struct MMA_64x8x32_S32U8S8_RS_TN
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -23752,8 +23753,8 @@ struct MMA_64x8x32_S32U8S8_RS_TN_SATURATE
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -23792,8 +23793,8 @@ struct MMA_64x16x32_S32U8S8_RS_TN
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -23832,8 +23833,8 @@ struct MMA_64x16x32_S32U8S8_RS_TN_SATURATE
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -23877,8 +23878,8 @@ struct MMA_64x32x32_S32U8S8_RS_TN
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -23922,8 +23923,8 @@ struct MMA_64x32x32_S32U8S8_RS_TN_SATURATE
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -23973,8 +23974,8 @@ struct MMA_64x48x32_S32U8S8_RS_TN
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -24025,8 +24026,8 @@ struct MMA_64x48x32_S32U8S8_RS_TN_SATURATE
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -24081,8 +24082,8 @@ struct MMA_64x64x32_S32U8S8_RS_TN
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -24136,8 +24137,8 @@ struct MMA_64x64x32_S32U8S8_RS_TN_SATURATE
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -24197,8 +24198,8 @@ struct MMA_64x80x32_S32U8S8_RS_TN
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -24259,8 +24260,8 @@ struct MMA_64x80x32_S32U8S8_RS_TN_SATURATE
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -24325,8 +24326,8 @@ struct MMA_64x96x32_S32U8S8_RS_TN
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -24390,8 +24391,8 @@ struct MMA_64x96x32_S32U8S8_RS_TN_SATURATE
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -24461,8 +24462,8 @@ struct MMA_64x112x32_S32U8S8_RS_TN
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -24533,8 +24534,8 @@ struct MMA_64x112x32_S32U8S8_RS_TN_SATURATE
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -24609,8 +24610,8 @@ struct MMA_64x128x32_S32U8S8_RS_TN
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -24684,8 +24685,8 @@ struct MMA_64x128x32_S32U8S8_RS_TN_SATURATE
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -24765,8 +24766,8 @@ struct MMA_64x144x32_S32U8S8_RS_TN
         "+r"(d64), "+r"(d65), "+r"(d66), "+r"(d67),
         "+r"(d68), "+r"(d69), "+r"(d70), "+r"(d71)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -24847,8 +24848,8 @@ struct MMA_64x144x32_S32U8S8_RS_TN_SATURATE
         "+r"(d64), "+r"(d65), "+r"(d66), "+r"(d67),
         "+r"(d68), "+r"(d69), "+r"(d70), "+r"(d71)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -24934,8 +24935,8 @@ struct MMA_64x160x32_S32U8S8_RS_TN
         "+r"(d72), "+r"(d73), "+r"(d74), "+r"(d75),
         "+r"(d76), "+r"(d77), "+r"(d78), "+r"(d79)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -25021,8 +25022,8 @@ struct MMA_64x160x32_S32U8S8_RS_TN_SATURATE
         "+r"(d72), "+r"(d73), "+r"(d74), "+r"(d75),
         "+r"(d76), "+r"(d77), "+r"(d78), "+r"(d79)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -25113,8 +25114,8 @@ struct MMA_64x176x32_S32U8S8_RS_TN
         "+r"(d80), "+r"(d81), "+r"(d82), "+r"(d83),
         "+r"(d84), "+r"(d85), "+r"(d86), "+r"(d87)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -25205,8 +25206,8 @@ struct MMA_64x176x32_S32U8S8_RS_TN_SATURATE
         "+r"(d80), "+r"(d81), "+r"(d82), "+r"(d83),
         "+r"(d84), "+r"(d85), "+r"(d86), "+r"(d87)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -25301,8 +25302,8 @@ struct MMA_64x192x32_S32U8S8_RS_TN
         "+r"(d88), "+r"(d89), "+r"(d90), "+r"(d91),
         "+r"(d92), "+r"(d93), "+r"(d94), "+r"(d95)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -25396,8 +25397,8 @@ struct MMA_64x192x32_S32U8S8_RS_TN_SATURATE
         "+r"(d88), "+r"(d89), "+r"(d90), "+r"(d91),
         "+r"(d92), "+r"(d93), "+r"(d94), "+r"(d95)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -25497,8 +25498,8 @@ struct MMA_64x208x32_S32U8S8_RS_TN
         "+r"(d096), "+r"(d097), "+r"(d098), "+r"(d099),
         "+r"(d100), "+r"(d101), "+r"(d102), "+r"(d103)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -25599,8 +25600,8 @@ struct MMA_64x208x32_S32U8S8_RS_TN_SATURATE
         "+r"(d096), "+r"(d097), "+r"(d098), "+r"(d099),
         "+r"(d100), "+r"(d101), "+r"(d102), "+r"(d103)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -25706,8 +25707,8 @@ struct MMA_64x224x32_S32U8S8_RS_TN
         "+r"(d104), "+r"(d105), "+r"(d106), "+r"(d107),
         "+r"(d108), "+r"(d109), "+r"(d110), "+r"(d111)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -25813,8 +25814,8 @@ struct MMA_64x224x32_S32U8S8_RS_TN_SATURATE
         "+r"(d104), "+r"(d105), "+r"(d106), "+r"(d107),
         "+r"(d108), "+r"(d109), "+r"(d110), "+r"(d111)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -25925,8 +25926,8 @@ struct MMA_64x240x32_S32U8S8_RS_TN
         "+r"(d112), "+r"(d113), "+r"(d114), "+r"(d115),
         "+r"(d116), "+r"(d117), "+r"(d118), "+r"(d119)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26037,8 +26038,8 @@ struct MMA_64x240x32_S32U8S8_RS_TN_SATURATE
         "+r"(d112), "+r"(d113), "+r"(d114), "+r"(d115),
         "+r"(d116), "+r"(d117), "+r"(d118), "+r"(d119)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26153,8 +26154,8 @@ struct MMA_64x256x32_S32U8S8_RS_TN
         "+r"(d120), "+r"(d121), "+r"(d122), "+r"(d123),
         "+r"(d124), "+r"(d125), "+r"(d126), "+r"(d127)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_S32U8S8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26268,8 +26269,8 @@ struct MMA_64x256x32_S32U8S8_RS_TN_SATURATE
         "+r"(d120), "+r"(d121), "+r"(d122), "+r"(d123),
         "+r"(d124), "+r"(d125), "+r"(d126), "+r"(d127)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_S32U8S8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26306,8 +26307,8 @@ struct MMA_64x8x32_S32U8U8_SS_TN
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26344,8 +26345,8 @@ struct MMA_64x8x32_S32U8U8_SS_TN_SATURATE
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26384,8 +26385,8 @@ struct MMA_64x16x32_S32U8U8_SS_TN
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26424,8 +26425,8 @@ struct MMA_64x16x32_S32U8U8_SS_TN_SATURATE
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26469,8 +26470,8 @@ struct MMA_64x32x32_S32U8U8_SS_TN
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26514,8 +26515,8 @@ struct MMA_64x32x32_S32U8U8_SS_TN_SATURATE
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26565,8 +26566,8 @@ struct MMA_64x48x32_S32U8U8_SS_TN
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26617,8 +26618,8 @@ struct MMA_64x48x32_S32U8U8_SS_TN_SATURATE
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26673,8 +26674,8 @@ struct MMA_64x64x32_S32U8U8_SS_TN
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26728,8 +26729,8 @@ struct MMA_64x64x32_S32U8U8_SS_TN_SATURATE
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26789,8 +26790,8 @@ struct MMA_64x80x32_S32U8U8_SS_TN
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26851,8 +26852,8 @@ struct MMA_64x80x32_S32U8U8_SS_TN_SATURATE
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26917,8 +26918,8 @@ struct MMA_64x96x32_S32U8U8_SS_TN
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -26982,8 +26983,8 @@ struct MMA_64x96x32_S32U8U8_SS_TN_SATURATE
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -27053,8 +27054,8 @@ struct MMA_64x112x32_S32U8U8_SS_TN
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -27125,8 +27126,8 @@ struct MMA_64x112x32_S32U8U8_SS_TN_SATURATE
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -27201,8 +27202,8 @@ struct MMA_64x128x32_S32U8U8_SS_TN
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -27276,8 +27277,8 @@ struct MMA_64x128x32_S32U8U8_SS_TN_SATURATE
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -27357,8 +27358,8 @@ struct MMA_64x144x32_S32U8U8_SS_TN
         "+r"(d64), "+r"(d65), "+r"(d66), "+r"(d67),
         "+r"(d68), "+r"(d69), "+r"(d70), "+r"(d71)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -27439,8 +27440,8 @@ struct MMA_64x144x32_S32U8U8_SS_TN_SATURATE
         "+r"(d64), "+r"(d65), "+r"(d66), "+r"(d67),
         "+r"(d68), "+r"(d69), "+r"(d70), "+r"(d71)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -27526,8 +27527,8 @@ struct MMA_64x160x32_S32U8U8_SS_TN
         "+r"(d72), "+r"(d73), "+r"(d74), "+r"(d75),
         "+r"(d76), "+r"(d77), "+r"(d78), "+r"(d79)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -27613,8 +27614,8 @@ struct MMA_64x160x32_S32U8U8_SS_TN_SATURATE
         "+r"(d72), "+r"(d73), "+r"(d74), "+r"(d75),
         "+r"(d76), "+r"(d77), "+r"(d78), "+r"(d79)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -27705,8 +27706,8 @@ struct MMA_64x176x32_S32U8U8_SS_TN
         "+r"(d80), "+r"(d81), "+r"(d82), "+r"(d83),
         "+r"(d84), "+r"(d85), "+r"(d86), "+r"(d87)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -27797,8 +27798,8 @@ struct MMA_64x176x32_S32U8U8_SS_TN_SATURATE
         "+r"(d80), "+r"(d81), "+r"(d82), "+r"(d83),
         "+r"(d84), "+r"(d85), "+r"(d86), "+r"(d87)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -27893,8 +27894,8 @@ struct MMA_64x192x32_S32U8U8_SS_TN
         "+r"(d88), "+r"(d89), "+r"(d90), "+r"(d91),
         "+r"(d92), "+r"(d93), "+r"(d94), "+r"(d95)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -27988,8 +27989,8 @@ struct MMA_64x192x32_S32U8U8_SS_TN_SATURATE
         "+r"(d88), "+r"(d89), "+r"(d90), "+r"(d91),
         "+r"(d92), "+r"(d93), "+r"(d94), "+r"(d95)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -28089,8 +28090,8 @@ struct MMA_64x208x32_S32U8U8_SS_TN
         "+r"(d096), "+r"(d097), "+r"(d098), "+r"(d099),
         "+r"(d100), "+r"(d101), "+r"(d102), "+r"(d103)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -28191,8 +28192,8 @@ struct MMA_64x208x32_S32U8U8_SS_TN_SATURATE
         "+r"(d096), "+r"(d097), "+r"(d098), "+r"(d099),
         "+r"(d100), "+r"(d101), "+r"(d102), "+r"(d103)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -28298,8 +28299,8 @@ struct MMA_64x224x32_S32U8U8_SS_TN
         "+r"(d104), "+r"(d105), "+r"(d106), "+r"(d107),
         "+r"(d108), "+r"(d109), "+r"(d110), "+r"(d111)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -28405,8 +28406,8 @@ struct MMA_64x224x32_S32U8U8_SS_TN_SATURATE
         "+r"(d104), "+r"(d105), "+r"(d106), "+r"(d107),
         "+r"(d108), "+r"(d109), "+r"(d110), "+r"(d111)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -28517,8 +28518,8 @@ struct MMA_64x240x32_S32U8U8_SS_TN
         "+r"(d112), "+r"(d113), "+r"(d114), "+r"(d115),
         "+r"(d116), "+r"(d117), "+r"(d118), "+r"(d119)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -28629,8 +28630,8 @@ struct MMA_64x240x32_S32U8U8_SS_TN_SATURATE
         "+r"(d112), "+r"(d113), "+r"(d114), "+r"(d115),
         "+r"(d116), "+r"(d117), "+r"(d118), "+r"(d119)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -28745,8 +28746,8 @@ struct MMA_64x256x32_S32U8U8_SS_TN
         "+r"(d120), "+r"(d121), "+r"(d122), "+r"(d123),
         "+r"(d124), "+r"(d125), "+r"(d126), "+r"(d127)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_S32U8U8_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -28860,8 +28861,8 @@ struct MMA_64x256x32_S32U8U8_SS_TN_SATURATE
         "+r"(d120), "+r"(d121), "+r"(d122), "+r"(d123),
         "+r"(d124), "+r"(d125), "+r"(d126), "+r"(d127)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_S32U8U8_SS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -28898,8 +28899,8 @@ struct MMA_64x8x32_S32U8U8_RS_TN
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -28936,8 +28937,8 @@ struct MMA_64x8x32_S32U8U8_RS_TN_SATURATE
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -28976,8 +28977,8 @@ struct MMA_64x16x32_S32U8U8_RS_TN
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -29016,8 +29017,8 @@ struct MMA_64x16x32_S32U8U8_RS_TN_SATURATE
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -29061,8 +29062,8 @@ struct MMA_64x32x32_S32U8U8_RS_TN
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -29106,8 +29107,8 @@ struct MMA_64x32x32_S32U8U8_RS_TN_SATURATE
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -29157,8 +29158,8 @@ struct MMA_64x48x32_S32U8U8_RS_TN
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -29209,8 +29210,8 @@ struct MMA_64x48x32_S32U8U8_RS_TN_SATURATE
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -29265,8 +29266,8 @@ struct MMA_64x64x32_S32U8U8_RS_TN
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -29320,8 +29321,8 @@ struct MMA_64x64x32_S32U8U8_RS_TN_SATURATE
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -29381,8 +29382,8 @@ struct MMA_64x80x32_S32U8U8_RS_TN
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -29443,8 +29444,8 @@ struct MMA_64x80x32_S32U8U8_RS_TN_SATURATE
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -29509,8 +29510,8 @@ struct MMA_64x96x32_S32U8U8_RS_TN
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -29574,8 +29575,8 @@ struct MMA_64x96x32_S32U8U8_RS_TN_SATURATE
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -29645,8 +29646,8 @@ struct MMA_64x112x32_S32U8U8_RS_TN
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -29717,8 +29718,8 @@ struct MMA_64x112x32_S32U8U8_RS_TN_SATURATE
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -29793,8 +29794,8 @@ struct MMA_64x128x32_S32U8U8_RS_TN
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -29868,8 +29869,8 @@ struct MMA_64x128x32_S32U8U8_RS_TN_SATURATE
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -29949,8 +29950,8 @@ struct MMA_64x144x32_S32U8U8_RS_TN
         "+r"(d64), "+r"(d65), "+r"(d66), "+r"(d67),
         "+r"(d68), "+r"(d69), "+r"(d70), "+r"(d71)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -30031,8 +30032,8 @@ struct MMA_64x144x32_S32U8U8_RS_TN_SATURATE
         "+r"(d64), "+r"(d65), "+r"(d66), "+r"(d67),
         "+r"(d68), "+r"(d69), "+r"(d70), "+r"(d71)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -30118,8 +30119,8 @@ struct MMA_64x160x32_S32U8U8_RS_TN
         "+r"(d72), "+r"(d73), "+r"(d74), "+r"(d75),
         "+r"(d76), "+r"(d77), "+r"(d78), "+r"(d79)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -30205,8 +30206,8 @@ struct MMA_64x160x32_S32U8U8_RS_TN_SATURATE
         "+r"(d72), "+r"(d73), "+r"(d74), "+r"(d75),
         "+r"(d76), "+r"(d77), "+r"(d78), "+r"(d79)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -30297,8 +30298,8 @@ struct MMA_64x176x32_S32U8U8_RS_TN
         "+r"(d80), "+r"(d81), "+r"(d82), "+r"(d83),
         "+r"(d84), "+r"(d85), "+r"(d86), "+r"(d87)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -30389,8 +30390,8 @@ struct MMA_64x176x32_S32U8U8_RS_TN_SATURATE
         "+r"(d80), "+r"(d81), "+r"(d82), "+r"(d83),
         "+r"(d84), "+r"(d85), "+r"(d86), "+r"(d87)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -30485,8 +30486,8 @@ struct MMA_64x192x32_S32U8U8_RS_TN
         "+r"(d88), "+r"(d89), "+r"(d90), "+r"(d91),
         "+r"(d92), "+r"(d93), "+r"(d94), "+r"(d95)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -30580,8 +30581,8 @@ struct MMA_64x192x32_S32U8U8_RS_TN_SATURATE
         "+r"(d88), "+r"(d89), "+r"(d90), "+r"(d91),
         "+r"(d92), "+r"(d93), "+r"(d94), "+r"(d95)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -30681,8 +30682,8 @@ struct MMA_64x208x32_S32U8U8_RS_TN
         "+r"(d096), "+r"(d097), "+r"(d098), "+r"(d099),
         "+r"(d100), "+r"(d101), "+r"(d102), "+r"(d103)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -30783,8 +30784,8 @@ struct MMA_64x208x32_S32U8U8_RS_TN_SATURATE
         "+r"(d096), "+r"(d097), "+r"(d098), "+r"(d099),
         "+r"(d100), "+r"(d101), "+r"(d102), "+r"(d103)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -30890,8 +30891,8 @@ struct MMA_64x224x32_S32U8U8_RS_TN
         "+r"(d104), "+r"(d105), "+r"(d106), "+r"(d107),
         "+r"(d108), "+r"(d109), "+r"(d110), "+r"(d111)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -30997,8 +30998,8 @@ struct MMA_64x224x32_S32U8U8_RS_TN_SATURATE
         "+r"(d104), "+r"(d105), "+r"(d106), "+r"(d107),
         "+r"(d108), "+r"(d109), "+r"(d110), "+r"(d111)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -31109,8 +31110,8 @@ struct MMA_64x240x32_S32U8U8_RS_TN
         "+r"(d112), "+r"(d113), "+r"(d114), "+r"(d115),
         "+r"(d116), "+r"(d117), "+r"(d118), "+r"(d119)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -31221,8 +31222,8 @@ struct MMA_64x240x32_S32U8U8_RS_TN_SATURATE
         "+r"(d112), "+r"(d113), "+r"(d114), "+r"(d115),
         "+r"(d116), "+r"(d117), "+r"(d118), "+r"(d119)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -31337,8 +31338,8 @@ struct MMA_64x256x32_S32U8U8_RS_TN
         "+r"(d120), "+r"(d121), "+r"(d122), "+r"(d123),
         "+r"(d124), "+r"(d125), "+r"(d126), "+r"(d127)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_S32U8U8_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -31452,8 +31453,8 @@ struct MMA_64x256x32_S32U8U8_RS_TN_SATURATE
         "+r"(d120), "+r"(d121), "+r"(d122), "+r"(d123),
         "+r"(d124), "+r"(d125), "+r"(d126), "+r"(d127)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_S32U8U8_RS_TN_SATURATE without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -31494,8 +31495,8 @@ struct MMA_64x8x32_F16E4M3E4M3_SS_TN
     "}\n"
       : "+r"(d0), "+r"(d1)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -31536,8 +31537,8 @@ struct MMA_64x8x32_F16E4M3E4M3_RS_TN
     "}\n"
       : "+r"(d0), "+r"(d1)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -31578,8 +31579,8 @@ struct MMA_64x8x32_F32E4M3E4M3_SS_TN
     "}\n"
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -31620,8 +31621,8 @@ struct MMA_64x8x32_F32E4M3E4M3_RS_TN
     "}\n"
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -31662,8 +31663,8 @@ struct MMA_64x16x32_F16E4M3E4M3_SS_TN
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -31704,8 +31705,8 @@ struct MMA_64x16x32_F16E4M3E4M3_RS_TN
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -31748,8 +31749,8 @@ struct MMA_64x16x32_F32E4M3E4M3_SS_TN
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3),
         "+f"(d4), "+f"(d5), "+f"(d6), "+f"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -31792,8 +31793,8 @@ struct MMA_64x16x32_F32E4M3E4M3_RS_TN
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3),
         "+f"(d4), "+f"(d5), "+f"(d6), "+f"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -31836,8 +31837,8 @@ struct MMA_64x32x32_F16E4M3E4M3_SS_TN
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -31880,8 +31881,8 @@ struct MMA_64x32x32_F16E4M3E4M3_RS_TN
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -31929,8 +31930,8 @@ struct MMA_64x32x32_F32E4M3E4M3_SS_TN
         "+f"(d08), "+f"(d09), "+f"(d10), "+f"(d11),
         "+f"(d12), "+f"(d13), "+f"(d14), "+f"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -31978,8 +31979,8 @@ struct MMA_64x32x32_F32E4M3E4M3_RS_TN
         "+f"(d08), "+f"(d09), "+f"(d10), "+f"(d11),
         "+f"(d12), "+f"(d13), "+f"(d14), "+f"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32026,8 +32027,8 @@ struct MMA_64x48x32_F16E4M3E4M3_SS_TN
         "+r"(d04), "+r"(d05), "+r"(d06), "+r"(d07),
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32075,8 +32076,8 @@ struct MMA_64x48x32_F16E4M3E4M3_RS_TN
         "+r"(d04), "+r"(d05), "+r"(d06), "+r"(d07),
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32131,8 +32132,8 @@ struct MMA_64x48x32_F32E4M3E4M3_SS_TN
         "+f"(d16), "+f"(d17), "+f"(d18), "+f"(d19),
         "+f"(d20), "+f"(d21), "+f"(d22), "+f"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32187,8 +32188,8 @@ struct MMA_64x48x32_F32E4M3E4M3_RS_TN
         "+f"(d16), "+f"(d17), "+f"(d18), "+f"(d19),
         "+f"(d20), "+f"(d21), "+f"(d22), "+f"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32237,8 +32238,8 @@ struct MMA_64x64x32_F16E4M3E4M3_SS_TN
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32286,8 +32287,8 @@ struct MMA_64x64x32_F16E4M3E4M3_RS_TN
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32345,8 +32346,8 @@ struct MMA_64x64x32_F32E4M3E4M3_SS_TN
         "+f"(d24), "+f"(d25), "+f"(d26), "+f"(d27),
         "+f"(d28), "+f"(d29), "+f"(d30), "+f"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32404,8 +32405,8 @@ struct MMA_64x64x32_F32E4M3E4M3_RS_TN
         "+f"(d24), "+f"(d25), "+f"(d26), "+f"(d27),
         "+f"(d28), "+f"(d29), "+f"(d30), "+f"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32457,8 +32458,8 @@ struct MMA_64x80x32_F16E4M3E4M3_SS_TN
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15),
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32511,8 +32512,8 @@ struct MMA_64x80x32_F16E4M3E4M3_RS_TN
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15),
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32577,8 +32578,8 @@ struct MMA_64x80x32_F32E4M3E4M3_SS_TN
         "+f"(d32), "+f"(d33), "+f"(d34), "+f"(d35),
         "+f"(d36), "+f"(d37), "+f"(d38), "+f"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32643,8 +32644,8 @@ struct MMA_64x80x32_F32E4M3E4M3_RS_TN
         "+f"(d32), "+f"(d33), "+f"(d34), "+f"(d35),
         "+f"(d36), "+f"(d37), "+f"(d38), "+f"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32698,8 +32699,8 @@ struct MMA_64x96x32_F16E4M3E4M3_SS_TN
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32752,8 +32753,8 @@ struct MMA_64x96x32_F16E4M3E4M3_RS_TN
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32821,8 +32822,8 @@ struct MMA_64x96x32_F32E4M3E4M3_SS_TN
         "+f"(d40), "+f"(d41), "+f"(d42), "+f"(d43),
         "+f"(d44), "+f"(d45), "+f"(d46), "+f"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32890,8 +32891,8 @@ struct MMA_64x96x32_F32E4M3E4M3_RS_TN
         "+f"(d40), "+f"(d41), "+f"(d42), "+f"(d43),
         "+f"(d44), "+f"(d45), "+f"(d46), "+f"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -32948,8 +32949,8 @@ struct MMA_64x112x32_F16E4M3E4M3_SS_TN
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23),
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -33007,8 +33008,8 @@ struct MMA_64x112x32_F16E4M3E4M3_RS_TN
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23),
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -33083,8 +33084,8 @@ struct MMA_64x112x32_F32E4M3E4M3_SS_TN
         "+f"(d48), "+f"(d49), "+f"(d50), "+f"(d51),
         "+f"(d52), "+f"(d53), "+f"(d54), "+f"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -33159,8 +33160,8 @@ struct MMA_64x112x32_F32E4M3E4M3_RS_TN
         "+f"(d48), "+f"(d49), "+f"(d50), "+f"(d51),
         "+f"(d52), "+f"(d53), "+f"(d54), "+f"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -33219,8 +33220,8 @@ struct MMA_64x128x32_F16E4M3E4M3_SS_TN
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -33278,8 +33279,8 @@ struct MMA_64x128x32_F16E4M3E4M3_RS_TN
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -33357,8 +33358,8 @@ struct MMA_64x128x32_F32E4M3E4M3_SS_TN
         "+f"(d56), "+f"(d57), "+f"(d58), "+f"(d59),
         "+f"(d60), "+f"(d61), "+f"(d62), "+f"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -33436,8 +33437,8 @@ struct MMA_64x128x32_F32E4M3E4M3_RS_TN
         "+f"(d56), "+f"(d57), "+f"(d58), "+f"(d59),
         "+f"(d60), "+f"(d61), "+f"(d62), "+f"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -33499,8 +33500,8 @@ struct MMA_64x144x32_F16E4M3E4M3_SS_TN
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31),
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -33563,8 +33564,8 @@ struct MMA_64x144x32_F16E4M3E4M3_RS_TN
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31),
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -33649,8 +33650,8 @@ struct MMA_64x144x32_F32E4M3E4M3_SS_TN
         "+f"(d64), "+f"(d65), "+f"(d66), "+f"(d67),
         "+f"(d68), "+f"(d69), "+f"(d70), "+f"(d71)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -33735,8 +33736,8 @@ struct MMA_64x144x32_F32E4M3E4M3_RS_TN
         "+f"(d64), "+f"(d65), "+f"(d66), "+f"(d67),
         "+f"(d68), "+f"(d69), "+f"(d70), "+f"(d71)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -33801,8 +33802,8 @@ struct MMA_64x160x32_F16E4M3E4M3_SS_TN
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -33867,8 +33868,8 @@ struct MMA_64x160x32_F16E4M3E4M3_RS_TN
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -33958,8 +33959,8 @@ struct MMA_64x160x32_F32E4M3E4M3_SS_TN
         "+f"(d72), "+f"(d73), "+f"(d74), "+f"(d75),
         "+f"(d76), "+f"(d77), "+f"(d78), "+f"(d79)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -34049,8 +34050,8 @@ struct MMA_64x160x32_F32E4M3E4M3_RS_TN
         "+f"(d72), "+f"(d73), "+f"(d74), "+f"(d75),
         "+f"(d76), "+f"(d77), "+f"(d78), "+f"(d79)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -34118,8 +34119,8 @@ struct MMA_64x176x32_F16E4M3E4M3_SS_TN
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39),
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -34187,8 +34188,8 @@ struct MMA_64x176x32_F16E4M3E4M3_RS_TN
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39),
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -34283,8 +34284,8 @@ struct MMA_64x176x32_F32E4M3E4M3_SS_TN
         "+f"(d80), "+f"(d81), "+f"(d82), "+f"(d83),
         "+f"(d84), "+f"(d85), "+f"(d86), "+f"(d87)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -34379,8 +34380,8 @@ struct MMA_64x176x32_F32E4M3E4M3_RS_TN
         "+f"(d80), "+f"(d81), "+f"(d82), "+f"(d83),
         "+f"(d84), "+f"(d85), "+f"(d86), "+f"(d87)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -34449,8 +34450,8 @@ struct MMA_64x192x32_F16E4M3E4M3_SS_TN
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -34518,8 +34519,8 @@ struct MMA_64x192x32_F16E4M3E4M3_RS_TN
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -34617,8 +34618,8 @@ struct MMA_64x192x32_F32E4M3E4M3_SS_TN
         "+f"(d88), "+f"(d89), "+f"(d90), "+f"(d91),
         "+f"(d92), "+f"(d93), "+f"(d94), "+f"(d95)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -34716,8 +34717,8 @@ struct MMA_64x192x32_F32E4M3E4M3_RS_TN
         "+f"(d88), "+f"(d89), "+f"(d90), "+f"(d91),
         "+f"(d92), "+f"(d93), "+f"(d94), "+f"(d95)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -34789,8 +34790,8 @@ struct MMA_64x208x32_F16E4M3E4M3_SS_TN
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47),
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -34863,8 +34864,8 @@ struct MMA_64x208x32_F16E4M3E4M3_RS_TN
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47),
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -34969,8 +34970,8 @@ struct MMA_64x208x32_F32E4M3E4M3_SS_TN
         "+f"(d096), "+f"(d097), "+f"(d098), "+f"(d099),
         "+f"(d100), "+f"(d101), "+f"(d102), "+f"(d103)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -35075,8 +35076,8 @@ struct MMA_64x208x32_F32E4M3E4M3_RS_TN
         "+f"(d096), "+f"(d097), "+f"(d098), "+f"(d099),
         "+f"(d100), "+f"(d101), "+f"(d102), "+f"(d103)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -35151,8 +35152,8 @@ struct MMA_64x224x32_F16E4M3E4M3_SS_TN
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -35227,8 +35228,8 @@ struct MMA_64x224x32_F16E4M3E4M3_RS_TN
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -35338,8 +35339,8 @@ struct MMA_64x224x32_F32E4M3E4M3_SS_TN
         "+f"(d104), "+f"(d105), "+f"(d106), "+f"(d107),
         "+f"(d108), "+f"(d109), "+f"(d110), "+f"(d111)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -35449,8 +35450,8 @@ struct MMA_64x224x32_F32E4M3E4M3_RS_TN
         "+f"(d104), "+f"(d105), "+f"(d106), "+f"(d107),
         "+f"(d108), "+f"(d109), "+f"(d110), "+f"(d111)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -35528,8 +35529,8 @@ struct MMA_64x240x32_F16E4M3E4M3_SS_TN
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55),
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -35607,8 +35608,8 @@ struct MMA_64x240x32_F16E4M3E4M3_RS_TN
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55),
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -35723,8 +35724,8 @@ struct MMA_64x240x32_F32E4M3E4M3_SS_TN
         "+f"(d112), "+f"(d113), "+f"(d114), "+f"(d115),
         "+f"(d116), "+f"(d117), "+f"(d118), "+f"(d119)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -35839,8 +35840,8 @@ struct MMA_64x240x32_F32E4M3E4M3_RS_TN
         "+f"(d112), "+f"(d113), "+f"(d114), "+f"(d115),
         "+f"(d116), "+f"(d117), "+f"(d118), "+f"(d119)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -35919,8 +35920,8 @@ struct MMA_64x256x32_F16E4M3E4M3_SS_TN
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_F16E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -35998,8 +35999,8 @@ struct MMA_64x256x32_F16E4M3E4M3_RS_TN
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_F16E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36117,8 +36118,8 @@ struct MMA_64x256x32_F32E4M3E4M3_SS_TN
         "+f"(d120), "+f"(d121), "+f"(d122), "+f"(d123),
         "+f"(d124), "+f"(d125), "+f"(d126), "+f"(d127)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_F32E4M3E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36236,8 +36237,8 @@ struct MMA_64x256x32_F32E4M3E4M3_RS_TN
         "+f"(d120), "+f"(d121), "+f"(d122), "+f"(d123),
         "+f"(d124), "+f"(d125), "+f"(d126), "+f"(d127)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_F32E4M3E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36278,8 +36279,8 @@ struct MMA_64x8x32_F16E4M3E5M2_SS_TN
     "}\n"
       : "+r"(d0), "+r"(d1)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36320,8 +36321,8 @@ struct MMA_64x8x32_F16E4M3E5M2_RS_TN
     "}\n"
       : "+r"(d0), "+r"(d1)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36362,8 +36363,8 @@ struct MMA_64x8x32_F32E4M3E5M2_SS_TN
     "}\n"
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36404,8 +36405,8 @@ struct MMA_64x8x32_F32E4M3E5M2_RS_TN
     "}\n"
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36446,8 +36447,8 @@ struct MMA_64x16x32_F16E4M3E5M2_SS_TN
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36488,8 +36489,8 @@ struct MMA_64x16x32_F16E4M3E5M2_RS_TN
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36532,8 +36533,8 @@ struct MMA_64x16x32_F32E4M3E5M2_SS_TN
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3),
         "+f"(d4), "+f"(d5), "+f"(d6), "+f"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36576,8 +36577,8 @@ struct MMA_64x16x32_F32E4M3E5M2_RS_TN
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3),
         "+f"(d4), "+f"(d5), "+f"(d6), "+f"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36620,8 +36621,8 @@ struct MMA_64x32x32_F16E4M3E5M2_SS_TN
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36664,8 +36665,8 @@ struct MMA_64x32x32_F16E4M3E5M2_RS_TN
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36713,8 +36714,8 @@ struct MMA_64x32x32_F32E4M3E5M2_SS_TN
         "+f"(d08), "+f"(d09), "+f"(d10), "+f"(d11),
         "+f"(d12), "+f"(d13), "+f"(d14), "+f"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36762,8 +36763,8 @@ struct MMA_64x32x32_F32E4M3E5M2_RS_TN
         "+f"(d08), "+f"(d09), "+f"(d10), "+f"(d11),
         "+f"(d12), "+f"(d13), "+f"(d14), "+f"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36810,8 +36811,8 @@ struct MMA_64x48x32_F16E4M3E5M2_SS_TN
         "+r"(d04), "+r"(d05), "+r"(d06), "+r"(d07),
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36859,8 +36860,8 @@ struct MMA_64x48x32_F16E4M3E5M2_RS_TN
         "+r"(d04), "+r"(d05), "+r"(d06), "+r"(d07),
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36915,8 +36916,8 @@ struct MMA_64x48x32_F32E4M3E5M2_SS_TN
         "+f"(d16), "+f"(d17), "+f"(d18), "+f"(d19),
         "+f"(d20), "+f"(d21), "+f"(d22), "+f"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -36971,8 +36972,8 @@ struct MMA_64x48x32_F32E4M3E5M2_RS_TN
         "+f"(d16), "+f"(d17), "+f"(d18), "+f"(d19),
         "+f"(d20), "+f"(d21), "+f"(d22), "+f"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -37021,8 +37022,8 @@ struct MMA_64x64x32_F16E4M3E5M2_SS_TN
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -37070,8 +37071,8 @@ struct MMA_64x64x32_F16E4M3E5M2_RS_TN
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -37129,8 +37130,8 @@ struct MMA_64x64x32_F32E4M3E5M2_SS_TN
         "+f"(d24), "+f"(d25), "+f"(d26), "+f"(d27),
         "+f"(d28), "+f"(d29), "+f"(d30), "+f"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -37188,8 +37189,8 @@ struct MMA_64x64x32_F32E4M3E5M2_RS_TN
         "+f"(d24), "+f"(d25), "+f"(d26), "+f"(d27),
         "+f"(d28), "+f"(d29), "+f"(d30), "+f"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -37241,8 +37242,8 @@ struct MMA_64x80x32_F16E4M3E5M2_SS_TN
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15),
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -37295,8 +37296,8 @@ struct MMA_64x80x32_F16E4M3E5M2_RS_TN
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15),
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -37361,8 +37362,8 @@ struct MMA_64x80x32_F32E4M3E5M2_SS_TN
         "+f"(d32), "+f"(d33), "+f"(d34), "+f"(d35),
         "+f"(d36), "+f"(d37), "+f"(d38), "+f"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -37427,8 +37428,8 @@ struct MMA_64x80x32_F32E4M3E5M2_RS_TN
         "+f"(d32), "+f"(d33), "+f"(d34), "+f"(d35),
         "+f"(d36), "+f"(d37), "+f"(d38), "+f"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -37482,8 +37483,8 @@ struct MMA_64x96x32_F16E4M3E5M2_SS_TN
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -37536,8 +37537,8 @@ struct MMA_64x96x32_F16E4M3E5M2_RS_TN
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -37605,8 +37606,8 @@ struct MMA_64x96x32_F32E4M3E5M2_SS_TN
         "+f"(d40), "+f"(d41), "+f"(d42), "+f"(d43),
         "+f"(d44), "+f"(d45), "+f"(d46), "+f"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -37674,8 +37675,8 @@ struct MMA_64x96x32_F32E4M3E5M2_RS_TN
         "+f"(d40), "+f"(d41), "+f"(d42), "+f"(d43),
         "+f"(d44), "+f"(d45), "+f"(d46), "+f"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -37732,8 +37733,8 @@ struct MMA_64x112x32_F16E4M3E5M2_SS_TN
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23),
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -37791,8 +37792,8 @@ struct MMA_64x112x32_F16E4M3E5M2_RS_TN
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23),
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -37867,8 +37868,8 @@ struct MMA_64x112x32_F32E4M3E5M2_SS_TN
         "+f"(d48), "+f"(d49), "+f"(d50), "+f"(d51),
         "+f"(d52), "+f"(d53), "+f"(d54), "+f"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -37943,8 +37944,8 @@ struct MMA_64x112x32_F32E4M3E5M2_RS_TN
         "+f"(d48), "+f"(d49), "+f"(d50), "+f"(d51),
         "+f"(d52), "+f"(d53), "+f"(d54), "+f"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -38003,8 +38004,8 @@ struct MMA_64x128x32_F16E4M3E5M2_SS_TN
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -38062,8 +38063,8 @@ struct MMA_64x128x32_F16E4M3E5M2_RS_TN
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -38141,8 +38142,8 @@ struct MMA_64x128x32_F32E4M3E5M2_SS_TN
         "+f"(d56), "+f"(d57), "+f"(d58), "+f"(d59),
         "+f"(d60), "+f"(d61), "+f"(d62), "+f"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -38220,8 +38221,8 @@ struct MMA_64x128x32_F32E4M3E5M2_RS_TN
         "+f"(d56), "+f"(d57), "+f"(d58), "+f"(d59),
         "+f"(d60), "+f"(d61), "+f"(d62), "+f"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -38283,8 +38284,8 @@ struct MMA_64x144x32_F16E4M3E5M2_SS_TN
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31),
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -38347,8 +38348,8 @@ struct MMA_64x144x32_F16E4M3E5M2_RS_TN
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31),
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -38433,8 +38434,8 @@ struct MMA_64x144x32_F32E4M3E5M2_SS_TN
         "+f"(d64), "+f"(d65), "+f"(d66), "+f"(d67),
         "+f"(d68), "+f"(d69), "+f"(d70), "+f"(d71)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -38519,8 +38520,8 @@ struct MMA_64x144x32_F32E4M3E5M2_RS_TN
         "+f"(d64), "+f"(d65), "+f"(d66), "+f"(d67),
         "+f"(d68), "+f"(d69), "+f"(d70), "+f"(d71)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -38585,8 +38586,8 @@ struct MMA_64x160x32_F16E4M3E5M2_SS_TN
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -38651,8 +38652,8 @@ struct MMA_64x160x32_F16E4M3E5M2_RS_TN
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -38742,8 +38743,8 @@ struct MMA_64x160x32_F32E4M3E5M2_SS_TN
         "+f"(d72), "+f"(d73), "+f"(d74), "+f"(d75),
         "+f"(d76), "+f"(d77), "+f"(d78), "+f"(d79)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -38833,8 +38834,8 @@ struct MMA_64x160x32_F32E4M3E5M2_RS_TN
         "+f"(d72), "+f"(d73), "+f"(d74), "+f"(d75),
         "+f"(d76), "+f"(d77), "+f"(d78), "+f"(d79)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -38902,8 +38903,8 @@ struct MMA_64x176x32_F16E4M3E5M2_SS_TN
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39),
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -38971,8 +38972,8 @@ struct MMA_64x176x32_F16E4M3E5M2_RS_TN
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39),
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -39067,8 +39068,8 @@ struct MMA_64x176x32_F32E4M3E5M2_SS_TN
         "+f"(d80), "+f"(d81), "+f"(d82), "+f"(d83),
         "+f"(d84), "+f"(d85), "+f"(d86), "+f"(d87)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -39163,8 +39164,8 @@ struct MMA_64x176x32_F32E4M3E5M2_RS_TN
         "+f"(d80), "+f"(d81), "+f"(d82), "+f"(d83),
         "+f"(d84), "+f"(d85), "+f"(d86), "+f"(d87)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -39233,8 +39234,8 @@ struct MMA_64x192x32_F16E4M3E5M2_SS_TN
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -39302,8 +39303,8 @@ struct MMA_64x192x32_F16E4M3E5M2_RS_TN
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -39401,8 +39402,8 @@ struct MMA_64x192x32_F32E4M3E5M2_SS_TN
         "+f"(d88), "+f"(d89), "+f"(d90), "+f"(d91),
         "+f"(d92), "+f"(d93), "+f"(d94), "+f"(d95)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -39500,8 +39501,8 @@ struct MMA_64x192x32_F32E4M3E5M2_RS_TN
         "+f"(d88), "+f"(d89), "+f"(d90), "+f"(d91),
         "+f"(d92), "+f"(d93), "+f"(d94), "+f"(d95)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -39573,8 +39574,8 @@ struct MMA_64x208x32_F16E4M3E5M2_SS_TN
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47),
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -39647,8 +39648,8 @@ struct MMA_64x208x32_F16E4M3E5M2_RS_TN
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47),
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -39753,8 +39754,8 @@ struct MMA_64x208x32_F32E4M3E5M2_SS_TN
         "+f"(d096), "+f"(d097), "+f"(d098), "+f"(d099),
         "+f"(d100), "+f"(d101), "+f"(d102), "+f"(d103)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -39859,8 +39860,8 @@ struct MMA_64x208x32_F32E4M3E5M2_RS_TN
         "+f"(d096), "+f"(d097), "+f"(d098), "+f"(d099),
         "+f"(d100), "+f"(d101), "+f"(d102), "+f"(d103)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -39935,8 +39936,8 @@ struct MMA_64x224x32_F16E4M3E5M2_SS_TN
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -40011,8 +40012,8 @@ struct MMA_64x224x32_F16E4M3E5M2_RS_TN
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -40122,8 +40123,8 @@ struct MMA_64x224x32_F32E4M3E5M2_SS_TN
         "+f"(d104), "+f"(d105), "+f"(d106), "+f"(d107),
         "+f"(d108), "+f"(d109), "+f"(d110), "+f"(d111)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -40233,8 +40234,8 @@ struct MMA_64x224x32_F32E4M3E5M2_RS_TN
         "+f"(d104), "+f"(d105), "+f"(d106), "+f"(d107),
         "+f"(d108), "+f"(d109), "+f"(d110), "+f"(d111)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -40312,8 +40313,8 @@ struct MMA_64x240x32_F16E4M3E5M2_SS_TN
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55),
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -40391,8 +40392,8 @@ struct MMA_64x240x32_F16E4M3E5M2_RS_TN
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55),
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -40507,8 +40508,8 @@ struct MMA_64x240x32_F32E4M3E5M2_SS_TN
         "+f"(d112), "+f"(d113), "+f"(d114), "+f"(d115),
         "+f"(d116), "+f"(d117), "+f"(d118), "+f"(d119)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -40623,8 +40624,8 @@ struct MMA_64x240x32_F32E4M3E5M2_RS_TN
         "+f"(d112), "+f"(d113), "+f"(d114), "+f"(d115),
         "+f"(d116), "+f"(d117), "+f"(d118), "+f"(d119)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -40703,8 +40704,8 @@ struct MMA_64x256x32_F16E4M3E5M2_SS_TN
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_F16E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -40782,8 +40783,8 @@ struct MMA_64x256x32_F16E4M3E5M2_RS_TN
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_F16E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -40901,8 +40902,8 @@ struct MMA_64x256x32_F32E4M3E5M2_SS_TN
         "+f"(d120), "+f"(d121), "+f"(d122), "+f"(d123),
         "+f"(d124), "+f"(d125), "+f"(d126), "+f"(d127)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_F32E4M3E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41020,8 +41021,8 @@ struct MMA_64x256x32_F32E4M3E5M2_RS_TN
         "+f"(d120), "+f"(d121), "+f"(d122), "+f"(d123),
         "+f"(d124), "+f"(d125), "+f"(d126), "+f"(d127)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_F32E4M3E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41062,8 +41063,8 @@ struct MMA_64x8x32_F16E5M2E4M3_SS_TN
     "}\n"
       : "+r"(d0), "+r"(d1)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41104,8 +41105,8 @@ struct MMA_64x8x32_F16E5M2E4M3_RS_TN
     "}\n"
       : "+r"(d0), "+r"(d1)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41146,8 +41147,8 @@ struct MMA_64x8x32_F32E5M2E4M3_SS_TN
     "}\n"
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41188,8 +41189,8 @@ struct MMA_64x8x32_F32E5M2E4M3_RS_TN
     "}\n"
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41230,8 +41231,8 @@ struct MMA_64x16x32_F16E5M2E4M3_SS_TN
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41272,8 +41273,8 @@ struct MMA_64x16x32_F16E5M2E4M3_RS_TN
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41316,8 +41317,8 @@ struct MMA_64x16x32_F32E5M2E4M3_SS_TN
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3),
         "+f"(d4), "+f"(d5), "+f"(d6), "+f"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41360,8 +41361,8 @@ struct MMA_64x16x32_F32E5M2E4M3_RS_TN
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3),
         "+f"(d4), "+f"(d5), "+f"(d6), "+f"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41404,8 +41405,8 @@ struct MMA_64x32x32_F16E5M2E4M3_SS_TN
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41448,8 +41449,8 @@ struct MMA_64x32x32_F16E5M2E4M3_RS_TN
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41497,8 +41498,8 @@ struct MMA_64x32x32_F32E5M2E4M3_SS_TN
         "+f"(d08), "+f"(d09), "+f"(d10), "+f"(d11),
         "+f"(d12), "+f"(d13), "+f"(d14), "+f"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41546,8 +41547,8 @@ struct MMA_64x32x32_F32E5M2E4M3_RS_TN
         "+f"(d08), "+f"(d09), "+f"(d10), "+f"(d11),
         "+f"(d12), "+f"(d13), "+f"(d14), "+f"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41594,8 +41595,8 @@ struct MMA_64x48x32_F16E5M2E4M3_SS_TN
         "+r"(d04), "+r"(d05), "+r"(d06), "+r"(d07),
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41643,8 +41644,8 @@ struct MMA_64x48x32_F16E5M2E4M3_RS_TN
         "+r"(d04), "+r"(d05), "+r"(d06), "+r"(d07),
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41699,8 +41700,8 @@ struct MMA_64x48x32_F32E5M2E4M3_SS_TN
         "+f"(d16), "+f"(d17), "+f"(d18), "+f"(d19),
         "+f"(d20), "+f"(d21), "+f"(d22), "+f"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41755,8 +41756,8 @@ struct MMA_64x48x32_F32E5M2E4M3_RS_TN
         "+f"(d16), "+f"(d17), "+f"(d18), "+f"(d19),
         "+f"(d20), "+f"(d21), "+f"(d22), "+f"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41805,8 +41806,8 @@ struct MMA_64x64x32_F16E5M2E4M3_SS_TN
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41854,8 +41855,8 @@ struct MMA_64x64x32_F16E5M2E4M3_RS_TN
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41913,8 +41914,8 @@ struct MMA_64x64x32_F32E5M2E4M3_SS_TN
         "+f"(d24), "+f"(d25), "+f"(d26), "+f"(d27),
         "+f"(d28), "+f"(d29), "+f"(d30), "+f"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -41972,8 +41973,8 @@ struct MMA_64x64x32_F32E5M2E4M3_RS_TN
         "+f"(d24), "+f"(d25), "+f"(d26), "+f"(d27),
         "+f"(d28), "+f"(d29), "+f"(d30), "+f"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -42025,8 +42026,8 @@ struct MMA_64x80x32_F16E5M2E4M3_SS_TN
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15),
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -42079,8 +42080,8 @@ struct MMA_64x80x32_F16E5M2E4M3_RS_TN
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15),
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -42145,8 +42146,8 @@ struct MMA_64x80x32_F32E5M2E4M3_SS_TN
         "+f"(d32), "+f"(d33), "+f"(d34), "+f"(d35),
         "+f"(d36), "+f"(d37), "+f"(d38), "+f"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -42211,8 +42212,8 @@ struct MMA_64x80x32_F32E5M2E4M3_RS_TN
         "+f"(d32), "+f"(d33), "+f"(d34), "+f"(d35),
         "+f"(d36), "+f"(d37), "+f"(d38), "+f"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -42266,8 +42267,8 @@ struct MMA_64x96x32_F16E5M2E4M3_SS_TN
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -42320,8 +42321,8 @@ struct MMA_64x96x32_F16E5M2E4M3_RS_TN
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -42389,8 +42390,8 @@ struct MMA_64x96x32_F32E5M2E4M3_SS_TN
         "+f"(d40), "+f"(d41), "+f"(d42), "+f"(d43),
         "+f"(d44), "+f"(d45), "+f"(d46), "+f"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -42458,8 +42459,8 @@ struct MMA_64x96x32_F32E5M2E4M3_RS_TN
         "+f"(d40), "+f"(d41), "+f"(d42), "+f"(d43),
         "+f"(d44), "+f"(d45), "+f"(d46), "+f"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -42516,8 +42517,8 @@ struct MMA_64x112x32_F16E5M2E4M3_SS_TN
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23),
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -42575,8 +42576,8 @@ struct MMA_64x112x32_F16E5M2E4M3_RS_TN
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23),
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -42651,8 +42652,8 @@ struct MMA_64x112x32_F32E5M2E4M3_SS_TN
         "+f"(d48), "+f"(d49), "+f"(d50), "+f"(d51),
         "+f"(d52), "+f"(d53), "+f"(d54), "+f"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -42727,8 +42728,8 @@ struct MMA_64x112x32_F32E5M2E4M3_RS_TN
         "+f"(d48), "+f"(d49), "+f"(d50), "+f"(d51),
         "+f"(d52), "+f"(d53), "+f"(d54), "+f"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -42787,8 +42788,8 @@ struct MMA_64x128x32_F16E5M2E4M3_SS_TN
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -42846,8 +42847,8 @@ struct MMA_64x128x32_F16E5M2E4M3_RS_TN
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -42925,8 +42926,8 @@ struct MMA_64x128x32_F32E5M2E4M3_SS_TN
         "+f"(d56), "+f"(d57), "+f"(d58), "+f"(d59),
         "+f"(d60), "+f"(d61), "+f"(d62), "+f"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -43004,8 +43005,8 @@ struct MMA_64x128x32_F32E5M2E4M3_RS_TN
         "+f"(d56), "+f"(d57), "+f"(d58), "+f"(d59),
         "+f"(d60), "+f"(d61), "+f"(d62), "+f"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -43067,8 +43068,8 @@ struct MMA_64x144x32_F16E5M2E4M3_SS_TN
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31),
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -43131,8 +43132,8 @@ struct MMA_64x144x32_F16E5M2E4M3_RS_TN
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31),
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -43217,8 +43218,8 @@ struct MMA_64x144x32_F32E5M2E4M3_SS_TN
         "+f"(d64), "+f"(d65), "+f"(d66), "+f"(d67),
         "+f"(d68), "+f"(d69), "+f"(d70), "+f"(d71)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -43303,8 +43304,8 @@ struct MMA_64x144x32_F32E5M2E4M3_RS_TN
         "+f"(d64), "+f"(d65), "+f"(d66), "+f"(d67),
         "+f"(d68), "+f"(d69), "+f"(d70), "+f"(d71)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -43369,8 +43370,8 @@ struct MMA_64x160x32_F16E5M2E4M3_SS_TN
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -43435,8 +43436,8 @@ struct MMA_64x160x32_F16E5M2E4M3_RS_TN
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -43526,8 +43527,8 @@ struct MMA_64x160x32_F32E5M2E4M3_SS_TN
         "+f"(d72), "+f"(d73), "+f"(d74), "+f"(d75),
         "+f"(d76), "+f"(d77), "+f"(d78), "+f"(d79)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -43617,8 +43618,8 @@ struct MMA_64x160x32_F32E5M2E4M3_RS_TN
         "+f"(d72), "+f"(d73), "+f"(d74), "+f"(d75),
         "+f"(d76), "+f"(d77), "+f"(d78), "+f"(d79)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -43686,8 +43687,8 @@ struct MMA_64x176x32_F16E5M2E4M3_SS_TN
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39),
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -43755,8 +43756,8 @@ struct MMA_64x176x32_F16E5M2E4M3_RS_TN
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39),
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -43851,8 +43852,8 @@ struct MMA_64x176x32_F32E5M2E4M3_SS_TN
         "+f"(d80), "+f"(d81), "+f"(d82), "+f"(d83),
         "+f"(d84), "+f"(d85), "+f"(d86), "+f"(d87)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -43947,8 +43948,8 @@ struct MMA_64x176x32_F32E5M2E4M3_RS_TN
         "+f"(d80), "+f"(d81), "+f"(d82), "+f"(d83),
         "+f"(d84), "+f"(d85), "+f"(d86), "+f"(d87)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -44017,8 +44018,8 @@ struct MMA_64x192x32_F16E5M2E4M3_SS_TN
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -44086,8 +44087,8 @@ struct MMA_64x192x32_F16E5M2E4M3_RS_TN
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -44185,8 +44186,8 @@ struct MMA_64x192x32_F32E5M2E4M3_SS_TN
         "+f"(d88), "+f"(d89), "+f"(d90), "+f"(d91),
         "+f"(d92), "+f"(d93), "+f"(d94), "+f"(d95)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -44284,8 +44285,8 @@ struct MMA_64x192x32_F32E5M2E4M3_RS_TN
         "+f"(d88), "+f"(d89), "+f"(d90), "+f"(d91),
         "+f"(d92), "+f"(d93), "+f"(d94), "+f"(d95)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -44357,8 +44358,8 @@ struct MMA_64x208x32_F16E5M2E4M3_SS_TN
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47),
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -44431,8 +44432,8 @@ struct MMA_64x208x32_F16E5M2E4M3_RS_TN
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47),
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -44537,8 +44538,8 @@ struct MMA_64x208x32_F32E5M2E4M3_SS_TN
         "+f"(d096), "+f"(d097), "+f"(d098), "+f"(d099),
         "+f"(d100), "+f"(d101), "+f"(d102), "+f"(d103)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -44643,8 +44644,8 @@ struct MMA_64x208x32_F32E5M2E4M3_RS_TN
         "+f"(d096), "+f"(d097), "+f"(d098), "+f"(d099),
         "+f"(d100), "+f"(d101), "+f"(d102), "+f"(d103)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -44719,8 +44720,8 @@ struct MMA_64x224x32_F16E5M2E4M3_SS_TN
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -44795,8 +44796,8 @@ struct MMA_64x224x32_F16E5M2E4M3_RS_TN
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -44906,8 +44907,8 @@ struct MMA_64x224x32_F32E5M2E4M3_SS_TN
         "+f"(d104), "+f"(d105), "+f"(d106), "+f"(d107),
         "+f"(d108), "+f"(d109), "+f"(d110), "+f"(d111)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -45017,8 +45018,8 @@ struct MMA_64x224x32_F32E5M2E4M3_RS_TN
         "+f"(d104), "+f"(d105), "+f"(d106), "+f"(d107),
         "+f"(d108), "+f"(d109), "+f"(d110), "+f"(d111)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -45096,8 +45097,8 @@ struct MMA_64x240x32_F16E5M2E4M3_SS_TN
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55),
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -45175,8 +45176,8 @@ struct MMA_64x240x32_F16E5M2E4M3_RS_TN
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55),
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -45291,8 +45292,8 @@ struct MMA_64x240x32_F32E5M2E4M3_SS_TN
         "+f"(d112), "+f"(d113), "+f"(d114), "+f"(d115),
         "+f"(d116), "+f"(d117), "+f"(d118), "+f"(d119)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -45407,8 +45408,8 @@ struct MMA_64x240x32_F32E5M2E4M3_RS_TN
         "+f"(d112), "+f"(d113), "+f"(d114), "+f"(d115),
         "+f"(d116), "+f"(d117), "+f"(d118), "+f"(d119)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -45487,8 +45488,8 @@ struct MMA_64x256x32_F16E5M2E4M3_SS_TN
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_F16E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -45566,8 +45567,8 @@ struct MMA_64x256x32_F16E5M2E4M3_RS_TN
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_F16E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -45685,8 +45686,8 @@ struct MMA_64x256x32_F32E5M2E4M3_SS_TN
         "+f"(d120), "+f"(d121), "+f"(d122), "+f"(d123),
         "+f"(d124), "+f"(d125), "+f"(d126), "+f"(d127)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_F32E5M2E4M3_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -45804,8 +45805,8 @@ struct MMA_64x256x32_F32E5M2E4M3_RS_TN
         "+f"(d120), "+f"(d121), "+f"(d122), "+f"(d123),
         "+f"(d124), "+f"(d125), "+f"(d126), "+f"(d127)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_F32E5M2E4M3_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -45846,8 +45847,8 @@ struct MMA_64x8x32_F16E5M2E5M2_SS_TN
     "}\n"
       : "+r"(d0), "+r"(d1)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -45888,8 +45889,8 @@ struct MMA_64x8x32_F16E5M2E5M2_RS_TN
     "}\n"
       : "+r"(d0), "+r"(d1)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -45930,8 +45931,8 @@ struct MMA_64x8x32_F32E5M2E5M2_SS_TN
     "}\n"
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -45972,8 +45973,8 @@ struct MMA_64x8x32_F32E5M2E5M2_RS_TN
     "}\n"
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x8x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46014,8 +46015,8 @@ struct MMA_64x16x32_F16E5M2E5M2_SS_TN
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46056,8 +46057,8 @@ struct MMA_64x16x32_F16E5M2E5M2_RS_TN
     "}\n"
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46100,8 +46101,8 @@ struct MMA_64x16x32_F32E5M2E5M2_SS_TN
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3),
         "+f"(d4), "+f"(d5), "+f"(d6), "+f"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46144,8 +46145,8 @@ struct MMA_64x16x32_F32E5M2E5M2_RS_TN
       : "+f"(d0), "+f"(d1), "+f"(d2), "+f"(d3),
         "+f"(d4), "+f"(d5), "+f"(d6), "+f"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x16x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46188,8 +46189,8 @@ struct MMA_64x32x32_F16E5M2E5M2_SS_TN
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46232,8 +46233,8 @@ struct MMA_64x32x32_F16E5M2E5M2_RS_TN
       : "+r"(d0), "+r"(d1), "+r"(d2), "+r"(d3),
         "+r"(d4), "+r"(d5), "+r"(d6), "+r"(d7)
       :  "r"(a0),  "r"(a1),  "r"(a2),  "r"(a3),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46281,8 +46282,8 @@ struct MMA_64x32x32_F32E5M2E5M2_SS_TN
         "+f"(d08), "+f"(d09), "+f"(d10), "+f"(d11),
         "+f"(d12), "+f"(d13), "+f"(d14), "+f"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46330,8 +46331,8 @@ struct MMA_64x32x32_F32E5M2E5M2_RS_TN
         "+f"(d08), "+f"(d09), "+f"(d10), "+f"(d11),
         "+f"(d12), "+f"(d13), "+f"(d14), "+f"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x32x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46378,8 +46379,8 @@ struct MMA_64x48x32_F16E5M2E5M2_SS_TN
         "+r"(d04), "+r"(d05), "+r"(d06), "+r"(d07),
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46427,8 +46428,8 @@ struct MMA_64x48x32_F16E5M2E5M2_RS_TN
         "+r"(d04), "+r"(d05), "+r"(d06), "+r"(d07),
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46483,8 +46484,8 @@ struct MMA_64x48x32_F32E5M2E5M2_SS_TN
         "+f"(d16), "+f"(d17), "+f"(d18), "+f"(d19),
         "+f"(d20), "+f"(d21), "+f"(d22), "+f"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46539,8 +46540,8 @@ struct MMA_64x48x32_F32E5M2E5M2_RS_TN
         "+f"(d16), "+f"(d17), "+f"(d18), "+f"(d19),
         "+f"(d20), "+f"(d21), "+f"(d22), "+f"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x48x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46589,8 +46590,8 @@ struct MMA_64x64x32_F16E5M2E5M2_SS_TN
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46638,8 +46639,8 @@ struct MMA_64x64x32_F16E5M2E5M2_RS_TN
         "+r"(d08), "+r"(d09), "+r"(d10), "+r"(d11),
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46697,8 +46698,8 @@ struct MMA_64x64x32_F32E5M2E5M2_SS_TN
         "+f"(d24), "+f"(d25), "+f"(d26), "+f"(d27),
         "+f"(d28), "+f"(d29), "+f"(d30), "+f"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46756,8 +46757,8 @@ struct MMA_64x64x32_F32E5M2E5M2_RS_TN
         "+f"(d24), "+f"(d25), "+f"(d26), "+f"(d27),
         "+f"(d28), "+f"(d29), "+f"(d30), "+f"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x64x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46809,8 +46810,8 @@ struct MMA_64x80x32_F16E5M2E5M2_SS_TN
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15),
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46863,8 +46864,8 @@ struct MMA_64x80x32_F16E5M2E5M2_RS_TN
         "+r"(d12), "+r"(d13), "+r"(d14), "+r"(d15),
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46929,8 +46930,8 @@ struct MMA_64x80x32_F32E5M2E5M2_SS_TN
         "+f"(d32), "+f"(d33), "+f"(d34), "+f"(d35),
         "+f"(d36), "+f"(d37), "+f"(d38), "+f"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -46995,8 +46996,8 @@ struct MMA_64x80x32_F32E5M2E5M2_RS_TN
         "+f"(d32), "+f"(d33), "+f"(d34), "+f"(d35),
         "+f"(d36), "+f"(d37), "+f"(d38), "+f"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x80x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -47050,8 +47051,8 @@ struct MMA_64x96x32_F16E5M2E5M2_SS_TN
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -47104,8 +47105,8 @@ struct MMA_64x96x32_F16E5M2E5M2_RS_TN
         "+r"(d16), "+r"(d17), "+r"(d18), "+r"(d19),
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -47173,8 +47174,8 @@ struct MMA_64x96x32_F32E5M2E5M2_SS_TN
         "+f"(d40), "+f"(d41), "+f"(d42), "+f"(d43),
         "+f"(d44), "+f"(d45), "+f"(d46), "+f"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -47242,8 +47243,8 @@ struct MMA_64x96x32_F32E5M2E5M2_RS_TN
         "+f"(d40), "+f"(d41), "+f"(d42), "+f"(d43),
         "+f"(d44), "+f"(d45), "+f"(d46), "+f"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x96x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -47300,8 +47301,8 @@ struct MMA_64x112x32_F16E5M2E5M2_SS_TN
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23),
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -47359,8 +47360,8 @@ struct MMA_64x112x32_F16E5M2E5M2_RS_TN
         "+r"(d20), "+r"(d21), "+r"(d22), "+r"(d23),
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -47435,8 +47436,8 @@ struct MMA_64x112x32_F32E5M2E5M2_SS_TN
         "+f"(d48), "+f"(d49), "+f"(d50), "+f"(d51),
         "+f"(d52), "+f"(d53), "+f"(d54), "+f"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -47511,8 +47512,8 @@ struct MMA_64x112x32_F32E5M2E5M2_RS_TN
         "+f"(d48), "+f"(d49), "+f"(d50), "+f"(d51),
         "+f"(d52), "+f"(d53), "+f"(d54), "+f"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x112x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -47571,8 +47572,8 @@ struct MMA_64x128x32_F16E5M2E5M2_SS_TN
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -47630,8 +47631,8 @@ struct MMA_64x128x32_F16E5M2E5M2_RS_TN
         "+r"(d24), "+r"(d25), "+r"(d26), "+r"(d27),
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -47709,8 +47710,8 @@ struct MMA_64x128x32_F32E5M2E5M2_SS_TN
         "+f"(d56), "+f"(d57), "+f"(d58), "+f"(d59),
         "+f"(d60), "+f"(d61), "+f"(d62), "+f"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -47788,8 +47789,8 @@ struct MMA_64x128x32_F32E5M2E5M2_RS_TN
         "+f"(d56), "+f"(d57), "+f"(d58), "+f"(d59),
         "+f"(d60), "+f"(d61), "+f"(d62), "+f"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x128x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -47851,8 +47852,8 @@ struct MMA_64x144x32_F16E5M2E5M2_SS_TN
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31),
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -47915,8 +47916,8 @@ struct MMA_64x144x32_F16E5M2E5M2_RS_TN
         "+r"(d28), "+r"(d29), "+r"(d30), "+r"(d31),
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -48001,8 +48002,8 @@ struct MMA_64x144x32_F32E5M2E5M2_SS_TN
         "+f"(d64), "+f"(d65), "+f"(d66), "+f"(d67),
         "+f"(d68), "+f"(d69), "+f"(d70), "+f"(d71)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -48087,8 +48088,8 @@ struct MMA_64x144x32_F32E5M2E5M2_RS_TN
         "+f"(d64), "+f"(d65), "+f"(d66), "+f"(d67),
         "+f"(d68), "+f"(d69), "+f"(d70), "+f"(d71)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x144x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -48153,8 +48154,8 @@ struct MMA_64x160x32_F16E5M2E5M2_SS_TN
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -48219,8 +48220,8 @@ struct MMA_64x160x32_F16E5M2E5M2_RS_TN
         "+r"(d32), "+r"(d33), "+r"(d34), "+r"(d35),
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -48310,8 +48311,8 @@ struct MMA_64x160x32_F32E5M2E5M2_SS_TN
         "+f"(d72), "+f"(d73), "+f"(d74), "+f"(d75),
         "+f"(d76), "+f"(d77), "+f"(d78), "+f"(d79)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -48401,8 +48402,8 @@ struct MMA_64x160x32_F32E5M2E5M2_RS_TN
         "+f"(d72), "+f"(d73), "+f"(d74), "+f"(d75),
         "+f"(d76), "+f"(d77), "+f"(d78), "+f"(d79)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x160x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -48470,8 +48471,8 @@ struct MMA_64x176x32_F16E5M2E5M2_SS_TN
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39),
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -48539,8 +48540,8 @@ struct MMA_64x176x32_F16E5M2E5M2_RS_TN
         "+r"(d36), "+r"(d37), "+r"(d38), "+r"(d39),
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -48635,8 +48636,8 @@ struct MMA_64x176x32_F32E5M2E5M2_SS_TN
         "+f"(d80), "+f"(d81), "+f"(d82), "+f"(d83),
         "+f"(d84), "+f"(d85), "+f"(d86), "+f"(d87)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -48731,8 +48732,8 @@ struct MMA_64x176x32_F32E5M2E5M2_RS_TN
         "+f"(d80), "+f"(d81), "+f"(d82), "+f"(d83),
         "+f"(d84), "+f"(d85), "+f"(d86), "+f"(d87)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x176x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -48801,8 +48802,8 @@ struct MMA_64x192x32_F16E5M2E5M2_SS_TN
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -48870,8 +48871,8 @@ struct MMA_64x192x32_F16E5M2E5M2_RS_TN
         "+r"(d40), "+r"(d41), "+r"(d42), "+r"(d43),
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -48969,8 +48970,8 @@ struct MMA_64x192x32_F32E5M2E5M2_SS_TN
         "+f"(d88), "+f"(d89), "+f"(d90), "+f"(d91),
         "+f"(d92), "+f"(d93), "+f"(d94), "+f"(d95)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -49068,8 +49069,8 @@ struct MMA_64x192x32_F32E5M2E5M2_RS_TN
         "+f"(d88), "+f"(d89), "+f"(d90), "+f"(d91),
         "+f"(d92), "+f"(d93), "+f"(d94), "+f"(d95)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x192x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -49141,8 +49142,8 @@ struct MMA_64x208x32_F16E5M2E5M2_SS_TN
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47),
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -49215,8 +49216,8 @@ struct MMA_64x208x32_F16E5M2E5M2_RS_TN
         "+r"(d44), "+r"(d45), "+r"(d46), "+r"(d47),
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -49321,8 +49322,8 @@ struct MMA_64x208x32_F32E5M2E5M2_SS_TN
         "+f"(d096), "+f"(d097), "+f"(d098), "+f"(d099),
         "+f"(d100), "+f"(d101), "+f"(d102), "+f"(d103)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -49427,8 +49428,8 @@ struct MMA_64x208x32_F32E5M2E5M2_RS_TN
         "+f"(d096), "+f"(d097), "+f"(d098), "+f"(d099),
         "+f"(d100), "+f"(d101), "+f"(d102), "+f"(d103)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x208x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -49503,8 +49504,8 @@ struct MMA_64x224x32_F16E5M2E5M2_SS_TN
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -49579,8 +49580,8 @@ struct MMA_64x224x32_F16E5M2E5M2_RS_TN
         "+r"(d48), "+r"(d49), "+r"(d50), "+r"(d51),
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -49690,8 +49691,8 @@ struct MMA_64x224x32_F32E5M2E5M2_SS_TN
         "+f"(d104), "+f"(d105), "+f"(d106), "+f"(d107),
         "+f"(d108), "+f"(d109), "+f"(d110), "+f"(d111)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -49801,8 +49802,8 @@ struct MMA_64x224x32_F32E5M2E5M2_RS_TN
         "+f"(d104), "+f"(d105), "+f"(d106), "+f"(d107),
         "+f"(d108), "+f"(d109), "+f"(d110), "+f"(d111)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x224x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -49880,8 +49881,8 @@ struct MMA_64x240x32_F16E5M2E5M2_SS_TN
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55),
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -49959,8 +49960,8 @@ struct MMA_64x240x32_F16E5M2E5M2_RS_TN
         "+r"(d52), "+r"(d53), "+r"(d54), "+r"(d55),
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -50075,8 +50076,8 @@ struct MMA_64x240x32_F32E5M2E5M2_SS_TN
         "+f"(d112), "+f"(d113), "+f"(d114), "+f"(d115),
         "+f"(d116), "+f"(d117), "+f"(d118), "+f"(d119)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -50191,8 +50192,8 @@ struct MMA_64x240x32_F32E5M2E5M2_RS_TN
         "+f"(d112), "+f"(d113), "+f"(d114), "+f"(d115),
         "+f"(d116), "+f"(d117), "+f"(d118), "+f"(d119)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x240x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -50271,8 +50272,8 @@ struct MMA_64x256x32_F16E5M2E5M2_SS_TN
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_F16E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -50350,8 +50351,8 @@ struct MMA_64x256x32_F16E5M2E5M2_RS_TN
         "+r"(d56), "+r"(d57), "+r"(d58), "+r"(d59),
         "+r"(d60), "+r"(d61), "+r"(d62), "+r"(d63)
       :  "r"(a00),  "r"(a01),  "r"(a02),  "r"(a03),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_F16E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -50469,8 +50470,8 @@ struct MMA_64x256x32_F32E5M2E5M2_SS_TN
         "+f"(d120), "+f"(d121), "+f"(d122), "+f"(d123),
         "+f"(d124), "+f"(d125), "+f"(d126), "+f"(d127)
       :  "l"(desc_a),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_F32E5M2E5M2_SS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif
@@ -50588,8 +50589,8 @@ struct MMA_64x256x32_F32E5M2E5M2_RS_TN
         "+f"(d120), "+f"(d121), "+f"(d122), "+f"(d123),
         "+f"(d124), "+f"(d125), "+f"(d126), "+f"(d127)
       :  "r"(a000),  "r"(a001),  "r"(a002),  "r"(a003),
-         "l"(desc_b),
-         "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
+        "l"(desc_b),
+        "r"(int32_t(scale_D)), "n"(int32_t(scaleA)), "n"(int32_t(scaleB)));
 #else
     CUTE_INVALID_CONTROL_PATH("Attempting to use MMA_64x256x32_F32E5M2E5M2_RS_TN without CUTE_ARCH_MMA_SM90A_ENABLED");
 #endif

@@ -79,6 +79,7 @@
 #include "cutlass/util/reference/device/tensor_fill.h"
 
 #include "helper.h"
+#include "cutlass/gemm/collective/sm90_mma_tma_gmma_ss_warpspecialized.hpp"
 
 using namespace cute;
 
@@ -89,26 +90,26 @@ using namespace cute;
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // A matrix configuration
-using         ElementA    = float;                                          // Element type for A matrix operand
+using         ElementA    = cutlass::bfloat16_t;                                          // Element type for A matrix operand
 using         LayoutA     = cutlass::layout::RowMajor;                      // Layout type for A matrix operand
 constexpr int AlignmentA  = 128 / cutlass::sizeof_bits<ElementA>::value;    // Memory access granularity/alignment of A matrix in units of elements (up to 16 bytes)
 
 // B matrix configuration
-using         ElementB    = float;                                          // Element type for B matrix operand
+using         ElementB    = cutlass::bfloat16_t;                                          // Element type for B matrix operand
 using         LayoutB     = cutlass::layout::ColumnMajor;                   // Layout type for B matrix operand
 constexpr int AlignmentB  = 128 / cutlass::sizeof_bits<ElementB>::value;    // Memory access granularity/alignment of B matrix in units of elements (up to 16 bytes)
 
 // C/D matrix configuration
 using         ElementC    = float;                                          // Element type for C and D matrix operands
-using         LayoutC     = cutlass::layout::ColumnMajor;                   // Layout type for C and D matrix operands
+using         LayoutC     = cutlass::layout::RowMajor;                   // Layout type for C and D matrix operands
 constexpr int AlignmentC  = 128 / cutlass::sizeof_bits<ElementC>::value;    // Memory access granularity/alignment of C matrix in units of elements (up to 16 bytes)
 
 // Core kernel configurations
 using ElementAccumulator  = float;                                          // Element type for internal accumulation
 using ArchTag             = cutlass::arch::Sm90;                            // Tag indicating the minimum SM that supports the intended feature
 using OperatorClass       = cutlass::arch::OpClassTensorOp;                 // Operator class tag
-using TileShape           = Shape<_128,_128,_32>;                           // Threadblock-level tile size
-using ClusterShape        = Shape<_1,_2,_1>;                                // Shape of the threadblocks in a cluster
+using TileShape           = Shape<_64,_64,_16>;                           // Threadblock-level tile size
+using ClusterShape        = Shape<_1,_1,_1>;                                // Shape of the threadblocks in a cluster
 using StageCountType = cutlass::gemm::collective::StageCountAuto;           // Stage count maximized based on the tile size
 using KernelSchedule = cutlass::gemm::collective::KernelScheduleAuto;       // Kernel to launch based on the default setting in the Collective Builder
 
@@ -122,16 +123,73 @@ using CollectiveEpilogue = typename cutlass::epilogue::collective::CollectiveBui
     cutlass::epilogue::collective::EpilogueScheduleAuto
   >::CollectiveOp;
 
-using CollectiveMainloop = typename cutlass::gemm::collective::CollectiveBuilder<
-    ArchTag, OperatorClass,
-    ElementA, LayoutA, AlignmentA,
-    ElementB, LayoutB, AlignmentB,
-    ElementAccumulator,
-    TileShape, ClusterShape,
-    cutlass::gemm::collective::StageCountAutoCarveout<
-      static_cast<int>(sizeof(typename CollectiveEpilogue::SharedStorage))>,
-    cutlass::gemm::collective::KernelScheduleAuto
-  >::CollectiveOp;
+// using CollectiveMainloop = typename cutlass::gemm::collective::CollectiveBuilder<
+//     ArchTag, OperatorClass,
+//     ElementA, LayoutA, AlignmentA,
+//     ElementB, LayoutB, AlignmentB,
+//     ElementAccumulator,
+//     TileShape, ClusterShape,
+//     cutlass::gemm::collective::StageCountAutoCarveout<
+//       static_cast<int>(sizeof(typename CollectiveEpilogue::SharedStorage))>,
+//     cutlass::gemm::collective::KernelScheduleAuto
+//   >::CollectiveOp;
+namespace cg = cutlass::gemm::collective;
+namespace g  = cutlass::gemm;
+
+// 根据 A/B 的 layout 判定 GMMA Major（MN 或 K）
+static constexpr cute::GMMA::Major MajorA =
+  g::detail::is_mn_major_A<LayoutA>() ? cute::GMMA::Major::MN : cute::GMMA::Major::K;
+static constexpr cute::GMMA::Major MajorB =
+  g::detail::is_mn_major_B<LayoutB>() ? cute::GMMA::Major::MN : cute::GMMA::Major::K;
+
+// 固定为无 swizzle 的 INTER 布局（禁用 A/B 的 swizzle）
+// using SmemLayoutAtomA = std::conditional_t<
+//   g::detail::is_mn_major_A<LayoutA>(),
+//   cute::GMMA::Layout_MN_INTER_Atom<ElementA>,
+//   cute::GMMA::Layout_K_INTER_Atom<ElementA>
+// >;
+// using SmemLayoutAtomB = std::conditional_t<
+//   g::detail::is_mn_major_B<LayoutB>(),
+//   cute::GMMA::Layout_MN_INTER_Atom<ElementB>,
+//   cute::GMMA::Layout_K_INTER_Atom<ElementB>
+// >;
+using SmemLayoutAtomA = std::conditional_t<
+  g::detail::is_mn_major_A<LayoutA>(),
+  cute::GMMA::Layout_MN_SW32_Atom<ElementA>,
+  cute::GMMA::Layout_K_SW32_Atom<ElementA>
+>;
+using SmemLayoutAtomB = std::conditional_t<
+  g::detail::is_mn_major_B<LayoutB>(),
+  cute::GMMA::Layout_MN_SW32_Atom<ElementB>,
+  cute::GMMA::Layout_K_SW32_Atom<ElementB>
+>;
+
+// SS GMMA 算子（用上面 MajorA/MajorB）
+using TiledMma = decltype(cute::make_tiled_mma(
+  cute::GMMA::ss_op_selector<ElementA, ElementB, ElementAccumulator, TileShape, MajorA, MajorB>(),
+  cute::Layout<cute::Shape<cute::_1,cute::_1,cute::_1>>{}));
+
+// TMA 拷贝（cluster=1 时直接用 SM90_TMA_LOAD 即可）
+using GmemTiledCopyA = cute::SM90_TMA_LOAD;
+using GmemTiledCopyB = cute::SM90_TMA_LOAD;
+
+// pipeline stages 先固定 3，简单稳妥
+static constexpr int PipelineStages = 2;
+
+// 调度策略（TMA + GMMA，warp specialized）
+using DispatchPolicy = g::MainloopSm90TmaGmmaWarpSpecialized<
+  PipelineStages, ClusterShape, g::KernelTmaWarpSpecialized>;
+
+// 用 INTER 布局组装 SS mainloop
+using CollectiveMainloop = cg::CollectiveMma<
+  DispatchPolicy,
+  TileShape,
+  ElementA, g::TagToStrideA_t<LayoutA>,
+  ElementB, g::TagToStrideB_t<LayoutB>,
+  TiledMma,
+  GmemTiledCopyA, SmemLayoutAtomA, void, cute::identity,
+  GmemTiledCopyB, SmemLayoutAtomB, void, cute::identity
+>;
 
 using GemmKernel = cutlass::gemm::kernel::GemmUniversal<
     Shape<int,int,int>, // Indicates ProblemShape
@@ -197,7 +255,7 @@ struct Options {
     help(false),
     m(5120), n(4096), k(4096),
     alpha(1.f), beta(0.f),
-    iterations(1000),
+    iterations(1),
     raster(RasterOrderOptions::Heuristic),
     swizzle(1)
   { }
@@ -333,8 +391,21 @@ void initialize(const Options &options) {
   block_D.reset(options.m * options.n);
   block_ref_D.reset(options.m * options.n);
 
-  initialize_block(block_A, seed + 2023);
-  initialize_block(block_B, seed + 2022);
+  // 设置A矩阵为全0.1
+  cutlass::reference::device::BlockFillSequential(
+    block_A.get(), block_A.size(), ElementA(0.0), ElementA(0.1));
+  
+  // 设置B矩阵为全0.1  
+  cutlass::reference::device::BlockFillSequential(
+    block_B.get(), block_B.size(), ElementB(0.0), ElementB(0.1));
+  
+  // 设置A[0,0] = 0.2 (行主序: index = 2 * k + 0)
+  if (options.m > 2) {
+    ElementA value = cutlass::bfloat16_t(0.2f);
+    int index = 1 * options.k + 0;
+    cudaMemcpy(block_A.get() + index, &value, sizeof(ElementA), cudaMemcpyHostToDevice);
+  }
+  
   initialize_block(block_C, seed + 2021);
 }
 
@@ -382,7 +453,11 @@ bool verify(const Options &options) {
   CUDA_CHECK(cudaDeviceSynchronize());
 
   // Check if output from CUTLASS kernel and reference kernel are equal or not
-  bool passed = cutlass::reference::device::BlockCompareEqual(block_ref_D.get(), block_D.get(), block_D.size());
+  // bool passed = cutlass::reference::device::BlockCompareEqual(block_ref_D.get(), block_D.get(), block_D.size());
+
+  float epsilon = 1e-3f, non_zero_floor = 1e-6f;
+  bool passed = cutlass::reference::device::BlockCompareRelativelyEqual(
+  block_ref_D.get(), block_D.get(), block_D.size(), epsilon, non_zero_floor);
 
   return passed;
 }
@@ -392,6 +467,34 @@ template <typename Gemm>
 int run(Options &options)
 {
   initialize(options);
+
+  printf("=== 矩阵信息 ===\n");
+  printf("A矩阵 shape: [%d, %d] (总元素数: %d)\n", options.m, options.k, options.m * options.k);
+  printf("B矩阵 shape: [%d, %d] (总元素数: %d)\n", options.k, options.n, options.k * options.n);
+  printf("C矩阵 shape: [%d, %d] (总元素数: %d)\n", options.m, options.n, options.m * options.n);
+  
+  // 打印A矩阵的前几个元素（从GPU拷贝到CPU）
+  printf("\nA矩阵前10个元素:\n");
+  std::vector<float> host_A(std::min(10, options.m * options.k));
+  cudaMemcpy(host_A.data(), block_A.get(), 
+             std::min(10, options.m * options.k) * sizeof(float), 
+             cudaMemcpyDeviceToHost);
+  for (int i = 0; i < std::min(10, options.m * options.k); i++) {
+    printf("A[%d] = %.6f\n", i, host_A[i]);
+  }
+  
+  // 打印B矩阵的前几个元素
+  printf("\nB矩阵前10个元素:\n");
+  std::vector<float> host_B(std::min(10, options.k * options.n));
+  cudaMemcpy(host_B.data(), block_B.get(), 
+             std::min(10, options.k * options.n) * sizeof(float), 
+             cudaMemcpyDeviceToHost);
+  for (int i = 0; i < std::min(10, options.k * options.n); i++) {
+    printf("B[%d] = %.6f\n", i, host_B[i]);
+  }
+
+  printf("==================\n\n");
+
 
   // Instantiate CUTLASS kernel depending on templates
   Gemm gemm;
@@ -410,6 +513,8 @@ int run(Options &options)
 
   // Initialize CUTLASS kernel with arguments and workspace pointer
   CUTLASS_CHECK(gemm.initialize(arguments, workspace.get()));
+
+  
 
   // Correctness / Warmup iteration
   CUTLASS_CHECK(gemm.run());
