@@ -1,0 +1,2 @@
+[submodule "deps/cutlass"]
+	branch = mirage-patched
