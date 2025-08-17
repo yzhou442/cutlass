@@ -5588,7 +5588,7 @@ struct MMA_64x64x16_F32BF16BF16_SS
       float         & d28, float         & d29, float         & d30, float         & d31,
       GMMA::ScaleOut const scale_D = GMMA::ScaleOut::One)
   {
-    printf("desc_a: %llx, desc_b: %llx\n", desc_a, desc_b);
+    // printf("desc_a: %llx, desc_b: %llx\n", desc_a, desc_b);
 #if defined(CUTE_ARCH_MMA_SM90A_ENABLED)
     cutlass::arch::synclog_emit_wgmma_smem_smem(__LINE__, desc_a, desc_b);
     asm volatile(

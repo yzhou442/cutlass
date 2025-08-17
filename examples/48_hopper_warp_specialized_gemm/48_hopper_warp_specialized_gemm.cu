@@ -108,7 +108,7 @@ constexpr int AlignmentC  = 128 / cutlass::sizeof_bits<ElementC>::value;    // M
 using ElementAccumulator  = float;                                          // Element type for internal accumulation
 using ArchTag             = cutlass::arch::Sm90;                            // Tag indicating the minimum SM that supports the intended feature
 using OperatorClass       = cutlass::arch::OpClassTensorOp;                 // Operator class tag
-using TileShape           = Shape<_64,_64,_16>;                           // Threadblock-level tile size
+using TileShape           = Shape<_64,_64,_128>;                           // Threadblock-level tile size
 using ClusterShape        = Shape<_1,_1,_1>;                                // Shape of the threadblocks in a cluster
 using StageCountType = cutlass::gemm::collective::StageCountAuto;           // Stage count maximized based on the tile size
 using KernelSchedule = cutlass::gemm::collective::KernelScheduleAuto;       // Kernel to launch based on the default setting in the Collective Builder
@@ -155,13 +155,13 @@ static constexpr cute::GMMA::Major MajorB =
 // >;
 using SmemLayoutAtomA = std::conditional_t<
   g::detail::is_mn_major_A<LayoutA>(),
-  cute::GMMA::Layout_MN_SW32_Atom<ElementA>,
-  cute::GMMA::Layout_K_SW32_Atom<ElementA>
+  cute::GMMA::Layout_MN_SW128_Atom<ElementA>,
+  cute::GMMA::Layout_K_SW128_Atom<ElementA>
 >;
 using SmemLayoutAtomB = std::conditional_t<
   g::detail::is_mn_major_B<LayoutB>(),
-  cute::GMMA::Layout_MN_SW32_Atom<ElementB>,
-  cute::GMMA::Layout_K_SW32_Atom<ElementB>
+  cute::GMMA::Layout_MN_SW128_Atom<ElementB>,
+  cute::GMMA::Layout_K_SW128_Atom<ElementB>
 >;
 
 // SS GMMA 算子（用上面 MajorA/MajorB）

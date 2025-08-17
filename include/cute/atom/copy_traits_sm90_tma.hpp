@@ -698,7 +698,7 @@ construct_tma_gbasis(Tensor<GEngine,GLayout> const& gtensor,       // The origin
   CUTE_STATIC_ASSERT_V(size(slayout) == size(cta_v_map),
                        "TMA requires CTA_Tile and SLayout top-level size equivalence.");
 
-#if 0
+#if 1
   print("gtensor         : "); print(gtensor); print("\n");
   print("slayout         : "); print(slayout); print("\n");
   print("cta_v_map       : "); print(cta_v_map); print("\n");
@@ -716,7 +716,7 @@ construct_tma_gbasis(Tensor<GEngine,GLayout> const& gtensor,       // The origin
   // smem idx -> gmem mode
   auto sidx2gmode_full = coalesce(composition(cta_v_map, inv_smem_layout));
 
-#if 0
+#if 1
   print("inv_smem_layout : "); print(inv_smem_layout); print("\n");
   print("sidx2gmode_full : "); print(sidx2gmode_full); print("\n");
 #endif
@@ -735,7 +735,7 @@ construct_tma_gbasis(Tensor<GEngine,GLayout> const& gtensor,       // The origin
   // Keep only the static-1 basis modes into gmem
   auto sidx2gmode = take<0,smem_rank>(sidx2gmode_full);
 
-#if 0
+#if 1
   print("smem_rank  : "); print(smem_rank); print("\n");
   print("sidx2gmode : "); print(sidx2gmode); print("\n");
 #endif
@@ -792,7 +792,7 @@ construct_tma_gbasis(Tensor<GEngine,GLayout> const& gtensor,       // The origin
   // tma_box_shape:gmem_mode
   auto tma_gbasis = group<cute::min(rank(tma_gbasis_full),4),-1>(tma_gbasis_full);
 
-#if 0
+#if 1
   print("tile_gstride : "); print(tile_gstride); print("\n");
   print("tma_gstride  : "); print(tma_gstride); print("\n");
   print("gbasis       : "); print(gbasis); print("\n");
@@ -946,6 +946,28 @@ make_tma_copy_desc(Tensor<GEngine,GLayout> const& gtensor,         // The origin
   for_each(make_seq<tma_dim>{}, [&](auto i) {
     smem_box_shape[i] *= size<i>(tma_gbasis);
   });
+  printf("tma_gbasis: ");
+  print(tma_gbasis);
+  printf("\n");
+  auto sh = shape(tma_gbasis);
+  auto st = stride(tma_gbasis);
+
+  printf("shape       : ");
+  print(sh); printf("\n");
+
+  printf("stride: ");
+  print(st); printf("\n");
+
+  constexpr int R = decltype(rank(tma_gbasis))::value;
+  printf("rank        : %d\n", R);
+
+  printf("size<0> * 1: %d\n", size<0>(tma_gbasis) * 1);
+
+  print("st[0] is %d\n", (int) size<0>(tma_gbasis));
+  print("st[1] is %d\n", (int) size<1>(tma_gbasis));
+  print("st[2] is %d\n", (int) size<2>(tma_gbasis));
+
+
   // Finally, truncate the tma box by the num_multicast
   for (uint32_t i = tma_dim-1, multicast = num_multicast; multicast > 1; --i) {
     assert(smem_box_shape[i] % multicast == 0 || multicast % smem_box_shape[i] == 0);
