@@ -1109,7 +1109,7 @@ make_tma_copy_atom(CopyOp,
   //
   // TMA truncated layout
   //
-
+  printf("make_tma_copy_atom\n");
   auto smem_swizzle = get_swizzle_portion(slayout);
   auto smem_layout  = get_nonswizzle_portion(slayout);
 
@@ -1161,6 +1161,20 @@ make_tma_copy_tiled(CopyOp                  const& copy_op,
                     Layout<TShape,TStride>  const& cta_t_map,   // T: CTA thr idx -> logical TMA tid
                     Layout<VShape,VStride>  const& cta_v_map)   // V: CTA val idx -> gmem mode
 {
+  printf("make_tma_copy_tiled\n");
+  printf("gtensor: ");
+  print(gtensor);
+  printf("\n");
+  printf("slayout: ");
+  print(slayout);
+  printf("\n");
+  printf("cta_t_map: ");
+  print(cta_t_map);
+  printf("\n");
+  printf("cta_v_map: ");
+  print(cta_v_map);
+  printf("\n");
+
   Copy_Atom atom = make_tma_copy_atom<TmaInternalType>(copy_op, gtensor, slayout,
                                                        cosize(cta_t_map), cta_v_map);
 
@@ -1185,7 +1199,7 @@ make_tma_copy_tiled(CopyOp                  const& copy_op,
   // Combine with the T mapping
   [[maybe_unused]] auto layout_TV = make_layout(layout_T, layout_V);
 
-#if 0
+#if 1
   print("cta_tiler : "); print(cta_tiler); print("\n");
   print("layout_v : "); print(layout_v); print("\n");
   print("layout_V : "); print(layout_V); print("\n");
@@ -1297,6 +1311,21 @@ make_tma_copy(CopyOp                  const& copy_op,
     auto cta_t_tile = make_layout(cluster_size);
     // Prefer TmaInternalType if specified. Fallback to GEngine::value_type
     using TmaType = conditional_t<is_same<void, TmaInternalType>::value, typename GEngine::value_type, TmaInternalType>;
+    // printf("make_tma_copy\n");
+    // printf("gtensor: ");
+    // print(gtensor);
+    // printf("slayout: ");
+    // print(slayout);
+    // printf("cta_t_tile: ");
+    // print(cta_t_tile);
+    // printf("cta_v_tile: ");
+    // print(cta_v_tile);
+    // printf("copy_op: ");
+    // print(copy_op);
+    // printf("cluster_size: ");
+    // print(cluster_size);
+    // printf("cta_tiler: ");
+
     return detail::make_tma_copy_tiled<TmaType>(copy_op,
                                                 gtensor, slayout,
                                                 cta_t_tile, cta_v_tile);
@@ -1469,6 +1498,9 @@ make_tma_copy_A_sm90(CopyOp                  const& copy_op,
     // Prefer TmaInternalType if specified. Fallback to GEngine::value_type
     using TmaType = conditional_t<is_same<void, TmaInternalType>::value, typename GEngine::value_type, TmaInternalType>;
     auto tma_copy = detail::make_tma_copy_tiled<TmaType>(copy_op, gtensor, slayout, cta_t_tile, cta_v_tile);
+    printf("tma_copy: ");
+    print(tma_copy);
+    printf("\n");
     return tma_copy;
   }
 }

@@ -97,6 +97,7 @@ struct SM90_TMA_LOAD_2D
        void      * smem_ptr,
        int32_t const& crd0, int32_t const& crd1)
   {
+    printf("SM90_TMA_LOAD_2D::copy\n");
 #if defined(CUTE_ARCH_TMA_SM90_ENABLED)
     uint64_t gmem_int_desc = reinterpret_cast<uint64_t>(desc_ptr);
     uint32_t smem_int_mbar = cast_smem_ptr_to_uint(mbar_ptr);
@@ -143,6 +144,8 @@ struct SM90_TMA_LOAD_3D
        void      * smem_ptr,
        int32_t const& crd0, int32_t const& crd1, int32_t const& crd2)
   {
+    printf("SM90_TMA_LOAD_3D::copy\n");
+
 #if defined(CUTE_ARCH_TMA_SM90_ENABLED)
     uint64_t gmem_int_desc = reinterpret_cast<uint64_t>(desc_ptr);
     uint32_t smem_int_mbar = cast_smem_ptr_to_uint(mbar_ptr);
@@ -330,6 +333,11 @@ struct SM90_TMA_LOAD
     copy(void const* desc_ptr,
          int32_t const& crd0, int32_t const& crd1, int32_t const& crd2)
     {
+      printf("SM90_TMA_LOAD_3D::PREFETCH::copy\n");
+      printf("desc_ptr: %p\n", desc_ptr);
+      printf("crd0: %d\n", crd0);
+      printf("crd1: %d\n", crd1);
+      printf("crd2: %d\n", crd2);
       return SM90_TMA_LOAD_3D::PREFETCH::copy(desc_ptr, crd0, crd1, crd2);
     }
     CUTE_HOST_DEVICE static void
