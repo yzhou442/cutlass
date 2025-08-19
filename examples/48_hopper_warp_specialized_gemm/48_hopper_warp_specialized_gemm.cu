@@ -393,18 +393,18 @@ void initialize(const Options &options) {
 
   // 设置A矩阵为全0.1
   cutlass::reference::device::BlockFillSequential(
-    block_A.get(), block_A.size(), ElementA(0.0), ElementA(0.1));
+    block_A.get(), block_A.size(), ElementA(1), ElementA(1));
   
   // 设置B矩阵为全0.1  
   cutlass::reference::device::BlockFillSequential(
-    block_B.get(), block_B.size(), ElementB(0.0), ElementB(0.1));
+    block_B.get(), block_B.size(), ElementB(1), ElementB(1));
   
   // 设置A[0,0] = 0.2 (行主序: index = 2 * k + 0)
-  if (options.m > 2) {
-    ElementA value = cutlass::bfloat16_t(0.2f);
-    int index = 1 * options.k + 0;
-    cudaMemcpy(block_A.get() + index, &value, sizeof(ElementA), cudaMemcpyHostToDevice);
-  }
+  // if (options.m > 2) {
+  //   ElementA value = cutlass::bfloat16_t(0.2f);
+  //   int index = 1 * options.k + 0;
+  //   cudaMemcpy(block_A.get() + index, &value, sizeof(ElementA), cudaMemcpyHostToDevice);
+  // }
   
   initialize_block(block_C, seed + 2021);
 }
