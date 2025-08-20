@@ -224,13 +224,13 @@ struct CollectiveMma<
         SmemLayoutB{}(_,_,cute::Int<0>{}),
         TileShape{},
         ClusterShape{});
-    printf("in sm90_mma_tma_gmma_ss_warpspecialized.hpp\n");
-    printf("tma_load_a: ");
-    print(tma_load_a);
-    printf("\n");
-    printf("tma_load_b: ");
-    print(tma_load_b);
-    printf("\n");
+    // printf("in sm90_mma_tma_gmma_ss_warpspecialized.hpp\n");
+    // printf("tma_load_a: ");
+    // print(tma_load_a);
+    // printf("\n");
+    // printf("tma_load_b: ");
+    // print(tma_load_b);
+    // printf("\n");
     uint32_t transaction_bytes_mk = TmaTransactionBytesMK;
     uint32_t transaction_bytes_nk = TmaTransactionBytesNK;
     uint32_t transaction_bytes = transaction_bytes_mk + transaction_bytes_nk;
@@ -337,22 +337,22 @@ struct CollectiveMma<
 
       Tensor gA_mkl = get<0>(load_inputs);
       Tensor gB_nkl = get<1>(load_inputs);
-      printf("mainloop_params.tma_load_a: ");
-      print(mainloop_params.tma_load_a);
-      printf("\n");
-      printf("mainloop_params.tma_load_b: ");
-      print(mainloop_params.tma_load_b);
-      printf("\n");
+      // printf("mainloop_params.tma_load_a: ");
+      // print(mainloop_params.tma_load_a);
+      // printf("\n");
+      // printf("mainloop_params.tma_load_b: ");
+      // print(mainloop_params.tma_load_b);
+      // printf("\n");
 
       auto block_tma_a = mainloop_params.tma_load_a.get_slice(cluster_local_block_id.y);
       auto block_tma_b = mainloop_params.tma_load_b.get_slice(cluster_local_block_id.x);
 
-      printf("block_tma_a: ");
-      print(block_tma_a);
-      printf("\n");
-      printf("block_tma_b: ");
-      print(block_tma_b);
-      printf("\n");
+      // printf("block_tma_a: ");
+      // print(block_tma_a);
+      // printf("\n");
+      // printf("block_tma_b: ");
+      // print(block_tma_b);
+      // printf("\n");
       // Partition the inputs based on the current block coordinates.
       auto [m_coord, n_coord, k_coord, l_coord] = blk_coord;
       Tensor gA = gA_mkl(_,_,m_coord,_,l_coord);                                                     // (BLK_M,BLK_K,k)
@@ -365,19 +365,19 @@ struct CollectiveMma<
       Tensor tBgB = block_tma_b.partition_S(gB);                                                 // (TMA,TMA_N,TMA_K,k)
       Tensor tBsB = block_tma_b.partition_D(sB);    
       
-      printf("tAgA: ");
-      print(tAgA);
-      printf("\n");
-      printf("tAsA: ");
-      print(tAsA);
-      printf("\n");
-      // (TMA,TMA_N,TMA_K,PIPE)
-      printf("tBgB: ");
-      print(tBgB);
-      printf("\n");
-      printf("tBsB: ");
-      print(tBsB);
-      printf("\n");
+      // printf("tAgA: ");
+      // print(tAgA);
+      // printf("\n");
+      // printf("tAsA: ");
+      // print(tAsA);
+      // printf("\n");
+      // // (TMA,TMA_N,TMA_K,PIPE)
+      // printf("tBgB: ");
+      // print(tBgB);
+      // printf("\n");
+      // printf("tBsB: ");
+      // print(tBsB);
+      // printf("\n");
 
       uint16_t mcast_mask_a = 0;
       uint16_t mcast_mask_b = 0;
@@ -463,6 +463,19 @@ struct CollectiveMma<
     Tensor sA = make_tensor(make_smem_ptr(shared_tensors.smem_A.data()), SmemLayoutA{});          // (BLK_M,BLK_K,PIPE)
     Tensor sB = make_tensor(make_smem_ptr(shared_tensors.smem_B.data()), SmemLayoutB{});          // (BLK_N,BLK_K,PIPE)
 
+    if (threadIdx.x == 128) {
+      printf("\n in mma, smem A is\n");
+      for (int i = 0; i < 128; i++) {
+        printf("%f ", (float)reinterpret_cast<cutlass::bfloat16_t*>(shared_tensors.smem_A.data())[i]);
+      }
+      printf("\n");
+
+      printf("\n in mma, smem B is\n");
+      for (int i = 0; i < 128; i++) {
+        printf("%f ", (float)reinterpret_cast<cutlass::bfloat16_t*>(shared_tensors.smem_B.data())[i]);
+      }
+      printf("\n");
+    }
     //
     // Define C accumulators and A/B partitioning
     //

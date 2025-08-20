@@ -998,6 +998,19 @@ make_tma_copy_desc(Tensor<GEngine,GLayout> const& gtensor,         // The origin
   assert(smem_box_stride[4] >= (uint32_t(1)));               // Stride must be min 1
   assert(smem_box_stride[4] <= (uint32_t(8)));               // Stride must be max 2^3 = 8
 
+  std::cout << "gmem_prob_shape: ";
+  print(gmem_prob_shape);
+  std::cout << "\n";
+  std::cout << "gmem_prob_stride: ";
+  print(gmem_prob_stride);
+  std::cout << "\n";
+  std::cout << "smem_box_shape: ";
+  print(smem_box_shape);
+  std::cout << "\n";
+  std::cout << "smem_box_stride: ";
+  print(smem_box_stride);
+  std::cout << "\n";
+
     //
     // Construct the descriptor
     //
